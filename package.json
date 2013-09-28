@@ -1,0 +1,33 @@
+{
+  "name": "asparagus",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": ">=3.4.x",
+    "socket.io": ">=0.9.x",
+    "nano": ">=4.1.x",
+    "underscore": ">=1.5.x"
+  },
+  "description": "content management and generative typography framework",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/drewsynan/asparagus"
+  },
+  "keywords": [
+    "generative",
+    "typography",
+    "genetic",
+    "algorithm"
+  ],
+  "author": "Drew Synan",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "subdomain": "amasp",
+  "engines": {
+    "node": "0.10.x"
+  }
+}
