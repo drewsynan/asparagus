@@ -64,7 +64,7 @@
       });
 	  
 	  //websockets
-	  	socket = io.connect('http://localhost:9000');
+	  	socket = io.connect('http://localhost/admin');
 		socket.on('adminParams', function(data){
 			//console.log(data);
 			adminSettings = data;
