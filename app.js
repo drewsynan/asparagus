@@ -20,7 +20,7 @@ httpProxy.createServer(options).listen(80);
 //var L = new events.EventListener();
 */
 
-var asparagus = require('./amasp.js')
+var asparagus = require('./asparagus.js')
     , events = require('events');
 
 var myAsparagus = new asparagus();
