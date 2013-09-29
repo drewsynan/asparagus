@@ -1,3 +1,8 @@
+//This should be re-worked to either be directly integrated into the main application
+//on the /admin url
+//or maybe served there on port 80 using http-proxy... issues with websockets and proxy though
+//in the meantime, parameters must be set in params.js
+
 var express = require('express')
 	, app = express()
 	, server = require('http').createServer(app)

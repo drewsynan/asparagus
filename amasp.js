@@ -1,19 +1,23 @@
-function AmAsp() {
+function asparagus() {
 
 	var app = require('express')()
+	, express = require('express')
 	, server = require('http').createServer(app)
 	, io = require('socket.io').listen(server)
 	, crypto = require('crypto')
 	, _ = require('underscore')
 	, events = require('events');
 
+	params = require('./params.js');
+
 	var mainAppScope = this;
 
 	var mainAppMessenger = new events.EventEmitter();
 	this.listener = mainAppMessenger;
 
-	params = {
+	/* params = {
 			appPort: 8080,
+			appHostName: 'localhost',
 			dbHost: 'localhost',
 			dbPort: 5984,
 			dbName: 'amasp',
@@ -22,7 +26,7 @@ function AmAsp() {
 			mutationRate: 0.05,
 			currentGeneration: 0,
 			fitnessFunction: function(t) {return t}
-		}; //default params
+		}; //default params */
 
 	var status = {
 		readyToBoot: false,
@@ -70,40 +74,47 @@ function AmAsp() {
 
 			io.set('log level', 0);
 			server.listen(params.appPort);
-			console.log("App booted; Running on port " + params.appPort);
-			mainAppMessenger.emit("booted");
 
 			status.appRunning = true;
 			status.appBooted = true;
 
+			console.log("App booted; Running on port " + params.appPort);
+			mainAppMessenger.emit("booted");
+
 			herder = new events.EventEmitter();
 
-			app.get('/scanlan', function(req, res) {
-				res.sendfile(__dirname + '/scanlan.html');
+			//Serving directory
+			//static /lib directory
+			app.use('/lib', express.static(__dirname + '/lib'));
+
+			////Favicon
+			app.get('/favicon.ico', function(req, res) {
+				res.sendfile(__dirname + '/lib/favicon.ico');
 			});
 
-			app.get('/fonts.json', function(req, res) {
-				res.setHeader('Content-Type', 'application/json');
-				res.sendfile('fonts.json');
-			});
+			var views = require('./views.js')(app, express);
 
-			app.get('/idle-timer.min.js',function(req,res){
-				res.setHeader('Content-Type', 'application/javascript');
-				res.sendfile('idle-timer.min.js');
-			});
 
-			app.get('/currentFitness', function(req,res){
+
+			///REST
+			/*app.get('/currentFitness', function(req,res){
 				res.setHeader('Content-Type', 'application/json');
 				res.end(getCurrentGenerationByFitness());
-			})
+			});*/
+
+
+			///////// Web Sockets
 
 			io.sockets.on('connection', function(socket) {
 
+				//push initial choromosome once it's ready
 				herder.on("hereYouGo",function(individual){
 					socket.emit('initialChromosome',individual);
 				});
 
+				//queue up next individual
 				getNextIndividual();
+
 				socket.on('death', function(data) {
 					storeIndividual(data);
 				});
@@ -606,4 +617,4 @@ function AmAsp() {
 
 };
 
-module.exports = AmAsp;
+module.exports = asparagus;

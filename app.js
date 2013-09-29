@@ -1,3 +1,6 @@
+///PROXY SERVER
+
+/*
 var adminConsole = require('./admin.js')
     , amApp = require('./amasp.js')
     , events = require('events')
@@ -15,15 +18,22 @@ var options = {
 httpProxy.createServer(options).listen(80);
 
 //var L = new events.EventListener();
+*/
 
-var AmericanAsparagus = new amApp();
-AmericanAsparagus.initialize();
+var asparagus = require('./amasp.js')
+    , events = require('events');
 
-var console = new adminConsole(AmericanAsparagus);
-console.consoleBoot();
+var myAsparagus = new asparagus();
+myAsparagus.initialize();
 
-AmericanAsparagus.listener.on('initialized', function(){
-	//AmericanAsparagus.boot();
+//var console = new adminConsole(myAsparagus); //rework admin console into amasp main app
+//console.consoleBoot();
+
+myAsparagus.listener.on('initialized', function(){
+	myAsparagus.boot();
 });
 
-//console.bootApp();
+myAsparagus.listener.on('booted', function(){
+	console.log(myAsparagus.getParams());
+	console.log(myAsparagus.getStatus());
+});
