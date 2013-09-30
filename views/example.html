@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>The Inimitible Jeeves</title>
+	<meta charset="UTF-8">
+
+	<link rel="stylesheet" href="/lib/css/box.css">
+
+	<!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
+	<script src="/lib/offline/jquery-1.9.1.js"></script>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/lib/js/idle-timer.min.js"></script>
+
+	<script src="/lib/js/frontend-timer.js"></script>
+	<script src="/lib/js/frontend-loader.js"></script>
+	<script src="/lib/js/frontend-genome.js"></script>
+	<script src="/lib/js/frontend-box.js"></script>
+	<script src="/lib/js/frontend-init.js"></script>
+
+</head>
+<body style="display: none">
+<script src="/lib/js/frontend-doc-ready.js"></script>
+
+<!-- FLOATING BOX -->
+<div class="floating-box">
+	<div class="buttons home"><a href="../">\\\\ Home ////</a></div>
+	<hr>
+
+	<div class="info-container">
+		<div class="buttons info">:::::: Info ::::::</div>
+		<div id="genome-info">
+			<div id="genome-map">
+				<p class="about-ga"><a href="../#introduction">About the Project</a></p>
+				<div id="box-container">
+
+				</div>
+			</div>
+			<div class="bottomtext">
+			<p>&nbsp;</p>
+			<p>Generation <strong><span id="generation"></span></strong><br />
+	  			Individual <strong><span id="individual"></span></strong><br />
+	 			 <span class="md5"></span><br />
+				  <!-- 
+				  Parent 1: <spam class="Parent1"></spam>
+				  Parent 2: <span class="Parent2"></span>
+				  -->
+			</p>
+			</div>
+		</div>
+	</div>
+
+	<hr>
+	
+	<div class="buttons kill">.:.:.:KILL:.:.:.</div>
+</div>
+<!-- END FLOATING BOX -->
+
+
+<!-- ARTICLE BODY -->
+<!-- (elements)
+	  <p class="text">
+
+	  <h1 class="title">
+	  <h1 class="heading1">
+	  <h2 class="heading2">
+	  <h2 class="author">
+
+	  use <em> not <i>
+	
+	  <div class="epigraph"><p>...
+
+	  <div class="inline-picture"><img>...
+	  <div class="display-picture"><img>...
+
+	  <div class="footnote"><p>...
+	  <span class="footnotenumber">text...
+-->
+
+<div class="articlebody">
+<div id="verticalcolumn" class="column">
+<h1 class="title">Jeeves Exerts the Old Cerebellum</h1>
+<h2 class="author">P.G. Wodehouse</h2>
+<p class="text">&lsquo;Morning, Jeeves,&rsquo; I said.</p>
+<p class="text">&lsquo;Good morning, sir,&rsquo; said Jeeves.</p>
+<p class="text">He put the good old cup of tea softly on the table by my bed, and I took a refreshing sip. Just right, as usual. Not to hot, not too sweet, not too weak, not too strong, not too much milk, and not a drop spilled in the saucer. A most amazing cove, Jeeves. So dashed competent in every respect. I&rsquo;ve said it before, and I&rsquo;ll say it again. I mean to say, take just one small instance. Every other valet I&rsquo;ve ever had used to barge into my room in the morning while I was still asleep, causing much misery; but Jeeves seems to know when I&rsquo;m awake by a sort of telepathy. He always floats in with the cup exactly two minutes after I come to life. Makes a deuce of a lot of difference to a fellow&rsquo;s day.</p>
+<p class="text">&lsquo;How&rsquo;s the weather, Jeeves?&rsquo;</p>
+<p class="text">&lsquo;Exceptionally clement, sir.&rsquo;</p>
+<p class="text">Anything in the papers?&rsquo;</p>
+<p class="text">&lsquo;Some slight friction threatening in the Balkans, sir. Otherwise, nothing.&rsquo;</p>
+<p class="text">&lsquo;I say, Jeeves, a man I met at the club last night told me to put my shirt on Privateer for the two o&rsquo;clock race this afternoon. How about it?&rsquo;</p>
+<p class="text">&lsquo;I should not advocate it, sir. The stable is not sanguine.&rsquo;</p>
+<p class="text">That was enough for me. Jeeves knows. How, I couldn&rsquo;t say, but he knows. There was a time when I would laugh lightly, and go ahead, and lose my little all against his advice, but not now.</p>
+<p class="text">&lsquo;Talking of shirts,&rsquo; I said, &lsquo;have those mauve ones I ordered arrived yet?&rsquo;</p>
+<p class="text">&lsquo;Yes, sir. I sent them back.&rsquo;</p>
+<p class="text">&lsquo;Sent them back?&rsquo;</p>
+<p class="text">&lsquo;Yes, sir. They would not have become you.&rsquo;</p>
+<p class="text">Well, I must say I&rsquo;d thought fairly highly of those shirtings, but I bowed to superior knowledge. Weak? I don&rsquo;t know. Most fellows, no doubt, are all for having their valets confine their activities to creasing trousers and what not without trying to run the home; but it&rsquo;s different with Jeeves. Right from the first day he come to me, I have looked on him as a sort of guide, philosopher and friend.</p>
+<p class="text">&lsquo;Mr Little rang up on the telephone a few moments ago, sir. I informed him that you were not yet awake.&rsquo;</p>
+<p class="text">&lsquo;Did he leave a message?&rsquo;</p>
+<p class="text">&lsquo;No, sir. He mentioned that he had a matter of importance to discuss with you, but confided no details.&rsquo;</p>
+<p class="text">&lsquo;Oh, well, I expect I shall be seeing him at the club.&rsquo;</p>
+<p class="text">&lsquo;No doubt, sir.&rsquo;</p>
+<p class="text">I wasn&rsquo;t what you might call in a fever of impatience. Bingo little is a chap I was at school with, and we see a lot of each other still. He&rsquo;s the nephew of old Mortimer Little, who retired from business recently with a goodish pile. (You&rsquo;ve probably heard of Little&rsquo;s Liniment – It Limbers Up the Legs.) Bingo biffs about London on a pretty comfortable allowance given him by his uncle, and leads on the whole a fairly unclouded life. It wasn&rsquo;t likely that anything which he described as a matter of importance would turn out to be really so frightfully important. I took it that he had discovered some new brand of cigarette which he wanted me to try, or something like that, and didn&rsquo;t spoil my breakfast by worrying.</p>
+<p class="text">After breakfast I lit a cigarette and went to the open window to inspect the day. It certainly was one of the best and brightest.</p>
+<p class="text">&lsquo;Jeeves,&rsquo; I said.</p>
+<p class="text">&lsquo;Sir?&rsquo; said Jeeves. He had been clearing away the breakfast things, but at the sound of the young master&rsquo;s cheesed it courteously.</p>
+<p class="text">&lsquo;You were absolutely right about the weather. It is a juicy morning.&rsquo;</p>
+<p class="text">&lsquo;Decidedly, sir.&rsquo;</p>
+<p class="text">&lsquo;Spring and all that.&rsquo;</p>
+<p class="text">&lsquo;Yes, sir.&rsquo;</p>
+<p class="text">&lsquo;In the spring, Jeeves, a livelier iris gleams upon the burnished dove.&rsquo;</p>
+<p class="text">&lsquo;So I have been informed, sir.&rsquo;</p>
+<p class="text">&lsquo;Right ho! Then bring me my whangee, my yellowest gloves, and the old green Homburg. I&rsquo;m going into the Park to do pastoral dances.&rsquo;</p>
+<p class="text">I don&rsquo;t know if you know that sort of feeling you get on these days round about the end of April and the beginning of May, when the sky&rsquo;s a light blue, with cotton-wool clouds, and there&rsquo;s a bit of a breeze blowing from the west? Kind of uplifted feeling. Romantic, if you know what I mean. I&rsquo;m not much of a ladies&rsquo; man, but on this particular morning, it seemed to me that what I really wanted was some charming girl to buzz up and ask me to save her from assassins or something. So that is was a bit of an anti-climax when I merely ran into young Bingo Little, looking perfectly foul in a crimson satin tie decorated with horseshoes.</p>
+<p class="text">&lsquo;Hallo, Bertie,&rsquo; said Bingo.</p>
+<p class="text">&lsquo;My God, man!&rsquo; I gawped. &lsquo;The cravat! The gent&rsquo;s neckwear! Why? For what reason?&rsquo;</p>
+<p class="text">&lsquo;Oh, the tie?&rsquo; He blushed. &lsquo;I – er – I was given it.&rsquo;</p>
+<p class="text">He seemed embarrassed, so I dropped the subject. We toddled along a bit, and sat down on a couple of chairs by the Serpentine.</p>
+<p class="text">&lsquo;Jeeves tells me you want to talk to me about something,&rsquo; I said.</p>
+<p class="text">&lsquo;Eh?&rsquo; said Bingo, with a start. &lsquo;Oh yes, yes. Yes.&rsquo;</p>
+<p class="text">I waited for him to unleash the topic of the day, but he didn&rsquo;t seem to want to get along. Conversation languished. He stared straight ahead of him in a glassy sort of manner.</p>
+<p class="text">&lsquo;I say, Bertie,&rsquo; he said, after a pause of about and hour and a quarter.</p>
+<p class="text">&lsquo;Hallo!&rsquo;</p>
+<p class="text">&lsquo;Do you like the name Mabel?&rsquo;</p>
+<p class="text">&lsquo;No.&rsquo;</p>
+<p class="text">&lsquo;No?&rsquo;</p>
+<p class="text">&lsquo;No.&rsquo;</p>
+<p class="text">&lsquo;You don&rsquo;t think there&rsquo;s a kind of music in the word, like the wind rustling gently through the tree-tops?&rsquo;</p>
+<p class="text">&lsquo;No.&rsquo;</p>
+<p class="text">He seemed disappointed for a moment; then cheered up.</p>
+<p class="text">&lsquo;Of course, you wouldn&rsquo;t. You always were a fatheaded worm without any soul, weren&rsquo;t you?&rsquo;</p>
+<p class="text">&lsquo;Just as you say. Who is she? Tell me all.&rsquo;</p>
+<p class="text">For I realized now that poor old Bingo was going through it once again. Ever since I have known him – and we were at school together – he has been perpetually falling in love with someone, generally in the spring, which seems to act on him like magic. At school he had the finest collection of actresses&rsquo; photographs of anyone of this time; and at Oxford his romantic nature was a byword.</p>
+<p class="text">&lsquo;You&rsquo;d better come along and meet her at lunch,&rsquo; he said, looking at his watch.</p>
+<p class="text">&lsquo;A ripe suggestion,&rsquo; I said. &lsquo;Where are you meeting her? At the Ritz?&rsquo;</p>
+<p class="text">&lsquo;Near the Ritz.&rsquo;</p>
+<p class="text">He was geographically accurate. About fifty yards east of the Ritz there is one of those blighted tea-and-bun shops you see dotted all over London, and into this, if you&rsquo;ll believe me, young Bingo dived like a homing rabbit; and before I had time to say a word we were wedged in at a table, on the brink of a silent pool of coffee left there by and early luncher.</p>
+<p class="text">I&rsquo;m bound to say I couldn&rsquo;t quite follow the development of the scenario. Bingo, while not absolutely rolling in the stuff, has always had a fair amount of the ready. Apart form what he got from his uncle, I knew that he had finished up the jumping season well on the right side of the ledger. Why, then, was he lunching the girl at this God-forsaken eatery? It couldn&rsquo;t be because he was hard up.</p>
+<p class="text">Just then the waitress arrived. Rather a pretty girl.</p>
+<p class="text">&lsquo;Aren&rsquo;t we going to wait –?&rsquo; I started to say to Bingo, thinking it somewhat thick that, in addition to asking a girl to lunch with him in a place like this, he should fling himself on the foodstuffs before she turned up, when I caught sight of his face, and stopped.</p>
+<p class="text">The man was goggling. His entire map was suffused with a rich blush. He looked like the Soul&rsquo;s Awakening done in pink.</p>
+<p class="text">&lsquo;Hullo, Mabel!&rsquo; he said, with a sort of gulp.</p>
+<p class="text">&lsquo;Hallo!&rsquo; said the girl.</p>
+<p class="text">&lsquo;Mabel,&rsquo; said Bingo, &lsquo; this is Bertie Wooster, a pal of mine.&rsquo;</p>
+<p class="text">&lsquo;Pleased to meet you,&rsquo; she said. &lsquo;Nice morning.&rsquo;</p>
+<p class="text">&lsquo;Fine,&rsquo; I said.</p>
+<p class="text">&lsquo;You see I&rsquo;m wearing the tie,&rsquo; said Bingo.</p>
+<p class="text">&lsquo;It suits you beautiful,&rsquo; said the girl.</p>
+<p class="text">Personally, if anyone had told me that a tie like that suited me, I should have risen and struck them on the mazzard, regardless of their age and sex; but poor old Bingo simply got all flustered with gratification, and smirked in the most gruesome manner.</p>
+<p class="text">&lsquo;Well, what&rsquo;s it going to be today?&rsquo; asked the girl, introducing the business touch into the conversation. Bingo studied the menu devoutly.</p>
+<p class="text">&lsquo;I&rsquo;ll have a cup of cocoa, cold veal and ham pie, slice of fruitcake, and a macaroon. Same for you, Bertie?&rsquo;</p>
+<p class="text">I gazed at the man, revolted. That he could have been a pal of mine all these years, and think me capable of insulting the old tum with this sort of stuff cut me to the quick.</p>
+<p class="text">&lsquo;Or how about a bit of hot steak-pudding, with a sparkling limado to wash it down?&rsquo; Said Bingo.</p>
+<p class="text">You know, the way love can change a fellow is really frightful to contemplate. This chappie before me, who spoke in that absolutely careless way of macaroons and limado, was the man I had seen in happier days telling the head-waiter at Claridge&rsquo;s exactly how he wanted the chef to prepare the <em>sole frite au gourmet aux champignons</em>, and saying he would jolly well sling it back if it wasn&rsquo;t just right. Ghastly! Ghastly! A roll and butter and a small coffee seemed the only things on the list that hadn&rsquo;t been specially prepared by the nastier-minded members of the Borgia family for people they had a particular grudge against, so I chose them, and Mabel hopped it.</p>
+<p class="text">&lsquo;Well?&rsquo; Said Bingo rapturously.</p>
+<p class="text">I took it that he wanted my opinion of the female poisoner who had just left us.</p>
+<p class="text">&lsquo;Very nice,&rsquo; I said.</p>
+<p class="text">He seemed dissatisfied.</p>
+<p class="text">&lsquo;You don&rsquo;t think she&rsquo;s the most wonderful girl you ever saw?&rsquo; se said wistfully.</p>
+<p class="text">&lsquo;Oh, absolutely!&rsquo; I said, to appease the blighter. &lsquo;Where did you meet her?&rsquo;</p>
+<p class="text">&lsquo;At a subscription dance at Camberwell.&rsquo;</p>
+<p class="text">&lsquo;What on earth were you doing at a subscription dance at Camberwell?&rsquo;</p>
+<p class="text">&lsquo;Your man Jeeves asked me if I would by a couple of tickets. It was in aid of some charity or other.&rsquo;</p>
+<p class="text">&lsquo;Jeeves? I didn&rsquo;t know he went in for that sort of thing.&rsquo;</p>
+<p class="text">&lsquo;Well, I suppose he has to relax a bit every now and then. Anyway, he was there, swinging a dashed efficient show. I hadn&rsquo;t meant to go at first, but I turned up for a lark. Oh, Bertie, think what I might have missed!&rsquo;</p>
+<p class="text">&lsquo;What might you have missed?&rsquo; I asked, the old lemon being slightly clouded.</p>
+<p class="text">&lsquo;Mabel, you chump. If I hadn&rsquo;t gone I shouldn&rsquo;t have met Mabel.&rsquo;</p>
+<p class="text">&lsquo;Oh, ah!&rsquo;</p>
+<p class="text">At this point Bingo fell in to a species of trance, and only came out of it to wrap himself round the pie and the macaroon.</p>
+<p class="text">&lsquo;Bertie,&rsquo; he said. &lsquo;I want your advice.&rsquo;</p>
+<p class="text">&lsquo;Carry on.&rsquo;</p>
+<p class="text">&lsquo;At least, not your advice, because that wouldn&rsquo;t be much good to anybody. I mean, you&rsquo;re a pretty consummate old ass aren&rsquo;t you? Not that I want to hurt your feelings, of course.&rsquo;</p>
+<p class="text">&lsquo;No, no, I see that.&rsquo;</p>
+<p class="text">&lsquo;What I which you would do is to put the whole thing to that fellow Jeeves of yours, and see what he suggests. You&rsquo;ve often told me that he has helped other pals of yours out of messes. From what you tell me, he&rsquo;s by way of being the brains of the family.&rsquo;</p>
+<p class="text">&lsquo;He&rsquo;s never let me down yet.&rsquo;</p>
+<p class="text">&lsquo;Then put my case to him.&rsquo;</p>
+<p class="text">&lsquo;What case?&rsquo;</p>
+<p class="text">&lsquo;My problem.&rsquo;</p>
+<p class="text">&lsquo;What problem?&rsquo;</p>
+<p class="text">&lsquo;Why, you poor old fish, my uncle, of course. What do you think my uncle&rsquo;s going to say to all this? If I sprang it on him cold, he&rsquo;d tie himself in knots on the hearthrug.&rsquo;</p>
+<p class="text">&lsquo;One of these emotional johnnies, eh?&rsquo;</p>
+<p class="text">&lsquo;Somehow or other his mind has got to be prepared to receive the news. But how?&rsquo;</p>
+<p class="text">&lsquo;Ah!&rsquo;</p>
+<p class="text">&lsquo;That&rsquo;s a lot of help, that &ldquo;Ah&rdquo;! You see, I&rsquo;m pretty well dependent on the old boy. If he cut off my allowance, I should be very much in the soup. So you put the whole binge to Jeeves, and see if he can&rsquo;t scare up a happy ending somehow, tell him my future is in his hands, and if the wedding bells ring out, he can rely on me, even unto half my kingdom. Well, call it ten quid. Jeeves would exert himself with then quid on the horizon, what?&rsquo;</p>
+<p class="text">&lsquo;Undoubtedly,&rsquo; I said.</p>
+<p class="text">I wasn&rsquo;t in the least surprised at Bingo wanting to lug Jeeves into his private affairs like this. It was the first thing I would have thought of doing myself if I had been in any hole of any description. As I have frequently had occasion to observe, he is a bird of the ripest intellect, full of bright ideas. If anybody could fix things for poor old Bingo, he could.</p>
+<p class="text">I stated the case to him that night after dinner.</p>
+<p class="text">&lsquo;Jeeves.&rsquo;</p>
+<p class="text">&lsquo;Sir?&rsquo;</p>
+<p class="text">&lsquo;Are you busy just now?&rsquo;</p>
+<p class="text">&lsquo;No, sir.&rsquo;</p>
+<p class="text">&lsquo;I mean, not doing anything in particular?&rsquo;</p>
+<p class="text">&lsquo;No, sir. It is my practise at this hour to read some improving book; but if you desire my services, this can easily be postponed, or, indeed abandoned altogether.&rsquo;</p>
+<p class="text">&lsquo;Well, I want your advice. It&rsquo;s about Mr Little.&rsquo;</p>
+<p class="text">&lsquo;Young Mr Little, sir, or the elder Mr Little, his uncle who lives in Pounceby Gardens?&rsquo;</p>
+<p class="text">Jeeves seemed to know everything. Most amazing thing. I&rsquo;d been pally with Bingo practically all my life, and yet I didn&rsquo;t remember having heard that his uncle lived anywhere in particular.</p>
+<p class="text">&lsquo;How did you know he lived in Pounceby Gardens?&rsquo; I said.</p>
+<p class="text">&lsquo;I am on terms of some intimacy with the elder Mr Little&rsquo;s cook, sir. In fact, there is an understanding.&rsquo;</p>
+<p class="text">I&rsquo;m bound to say that this gave me a bit of a start. Somehow I&rsquo;d never thought of Jeeves going in for that sort of thing.</p>
+<p class="text">&lsquo;Do you mean you&rsquo;re engaged?&rsquo;</p>
+<p class="text">&lsquo;It may be said to amount to that, sir.&rsquo;</p>
+<p class="text">&lsquo;Well, well!&rsquo;</p>
+<p class="text">&lsquo;She is a remarkably excellent cook, sir,&rsquo; said Jeeves, as though he felt called on to give some explanation. &lsquo;What was it you wished to ask me about Mr Little?&rsquo;</p>
+<p class="text">I sprang the details on him.</p>
+<p class="text">&lsquo;And that&rsquo;s how the matter stands, Jeeves,&rsquo; I said. &lsquo;I thing we ought to rally round a trifle and help poor old Bingo put the thing through. Tell me about old Mr Little. What sort of a chap is he?&rsquo;</p>
+<p class="text">&lsquo;A somewhat curious character sir. Since retiring from business he has become a great recluse, and now devotes himself almost entirely to the pleasures of the table.&rsquo;</p>
+<p class="text">&lsquo;Greedy hog, you mean?&rsquo;</p>
+<p class="text">&lsquo;I would not, perhaps take the liberty of describing him in precisely those terms, sir. He is what is usually called a gourmet. Very particular about what he eats, and for that reason sets a high value on Miss Watson&rsquo;s services.&rsquo;</p>
+<p class="text">&lsquo;The cook?&rsquo;</p>
+<p class="text">&lsquo;Yes, sir.&rsquo;</p>
+<p class="text">&lsquo;Well, it looks to me as though our best plan would be to shoot young Bingo in on him after dinner one night. Melting mood, I mean to say, and all that.&rsquo;</p>
+<p class="text">&lsquo;The difficulty is, sir, that at the moment Mr Little is on a diet, owing to an attack of gout.&rsquo;</p>
+<p class="text">&lsquo;Things begin to look wobbly.&rsquo;</p>
+<p class="text">&lsquo;No, sir, I fancy that the elder Mr Little&rsquo;s misfortune may be turned to the younger Mr Little&rsquo;s advantage. I was speaking only the other day to Mr Little&rsquo;s valet, and he was telling me that it has become his principal duty to read to Mr Little in the evenings. If I were in your place, sir, I should send young Mr Little to read to his uncle.&rsquo;</p>
+<p class="text">&lsquo;Nephew&rsquo;s devotion, you mean? Old man toughed by kindly action, what?&rsquo;</p>
+<p class="text">&lsquo;Partly that, sir. But I would rely more on young Mr Little&rsquo;s choice of literature.&rsquo;</p>
+<p class="text">&lsquo;That&rsquo;s no good. Jolly old Bongo has a kind face, but when it comes to literature he stops at the <em>Sporting Times</em>.&rsquo;</p>
+<p class="text">&lsquo;That difficulty may be overcome. I would be happy to select books for Mr Little for read. Perhaps I might explain my idea a little further.&rsquo;</p>
+<p class="text">&lsquo;I can&rsquo;t say I quite grasp it yet.&rsquo;</p>
+<p class="text">&lsquo;The method which I advocate is what, I believe, the advertisers call Direct Suggestion, sir, consisting as it does of driving and idea home by constant repetition. You may have had experience of the system?&rsquo;</p>
+<p class="text">&lsquo;You mean they keep on telling you that some soap of the other is the best and after a bit you come under the influence and charge around the corner and buy a cake?&rsquo;</p>
+<p class="text">&lsquo;Exactly, sir. The same method was the basis of all the most valuable propaganda during the recent war. I see no reason why it should not be adopted to bring about the desired result with regard to the subject&rsquo;s views on class distinctions. If young Mr Little were to read day after day to his uncle a series of narratives in which marriage with young persons of an inferior social status was held up as both feasible and admirable, I fancy it would prepare the elder Mr Little&rsquo;s mind for the reception of the information that his nephew wishes to marry a waitress in a tea-shop.&rsquo;</p>
+<p class="text">&lsquo;<em>Are</em> there any books of that sort nowadays? The only ones I ever see mentioned in the papers are about married couples who find life grey, and can&rsquo;t stick each other at any price.&rsquo;</p>
+<p class="text">&lsquo;Yes, sir, there are a great many, neglected by the reviewers but widely read. You have never encountered &ldquo;All for Love&rdquo;, by Rosie M. Banks?&rsquo;</p>
+<p class="text">&lsquo;No.&rsquo;</p>
+<p class="text">&lsquo;Nor &ldquo;A Red, Red Summer Rose&rdquo;, by the same author?&rsquo;</p>
+<p class="text">&lsquo;No.&rsquo;</p>
+<p class="text">&lsquo;I have an aunt, sir, who owns an almost complete set of Rosie M. Banks&rsquo;. I could easily borrow as many volumes as young Mr Little might require. They make very light, attractive reading.&rsquo;</p>
+<p class="text">&lsquo;Well, it&rsquo;s worth trying.&rsquo;</p>
+<p class="text">&lsquo;I should certainly recommend the scheme, sir.&rsquo;</p>
+<p class="text">&lsquo;All right, then. Toddle round to your aunt&rsquo;s tomorrow and grab a couple of the fruitiest. We can but have a dash at it.&rsquo;</p>
+<p class="text">&lsquo;Precisely, sir.&rsquo;</p>
+			
+<!-- <div class="bibliography"></div> -->
+
+</div>
+</div>
+</html>

@@ -1,0 +1,162 @@
+notes
+Kill -> fade to white, send synchronous ajax request with timing data
+or fire synchronous request onUnload event, if server doesn't recieve timing info, and session is closed, it will re-serve the individual until it gets a timing info response
+
+load page, request chromosome as json from server, get individual ID
+session id, etc
+
+LIVE "average" page for viewing phenotypes, as each individual dies and is incorporated into the average, real-time json updates are pushed to active "average" connections for realtime update. As client pages get new json, they re-initialize using the new json (scroll to previous viewpoint via anchors ..?)
+
+var genetics = {chromosome: "FD123411113930575849384759595847595759485858375948575938457987394857938459384573984573984390298972905872398F093809837098D0D0D987098F709870A98A70A8709870987098C098734857875875822222283794857FFFFFFF759357303203987573483205729370298457275384730483957308570703752030220029384574075093847507504570293827530257203984757538345934857395750357025702938457024750270293845740375037209485703750257209384572057207502938475205720348457209384572057203209582094875023847502938475027502938457207502370429845720375029384572057209384572075029384572302520398457205720752093485720750293845720938572039579238DD29D9D87D0987DDDD9087FFFFFFFFFFFFFFFFFF703928059823537220FFF222222F098708711111111098359483495034539867968609384602987",
+	generation: 12,
+	individual: 247,
+	dbid: "15df8c82614388902330495847ffa10293",
+	sessionid: "0504958345098323335098504930948509"}
+
+map = {readpoints: {
+	DIR: {start: 1, len: 1, callback: function(F){
+			//set read direction
+			}},
+	WID: {start: 2, len: 2, callback: function(FF){
+			//column width
+				width = (toDecimal(FF)/256)*100;
+				widthStr = "'" + width + "%'";
+				$('.column').css({width: widthStr});
+			}},
+	HGT: {start: 4, len: 2, callback: function(FF){
+			//column height
+				height = (toDecimal(FF)/256)*100;
+				heightStr = "'" + width + "%'";
+				$('.column').css({height: heightStr});
+			}},
+	TXT: {start: 6, len: 36, callback: 
+			function(6_F36){
+			//text
+					textGene(6_F36, ".text");
+				}
+			},
+	EMP: {start: 43, len: 36, callback:
+			function(42_F36){
+			//emphasis
+					textGene(42_F36, "em, i");
+			}},
+	LNK: {start: 78, len: 36, callback:
+			function(78_F36){
+			//links
+					textGene(78_F36, "a:link, a:visited");
+			}},
+	BIB: {start: 114, len: 36, callback:
+			function(114_F36){
+					textGene(114_F36, ".bibliography");
+			}},
+	LST: {start: 150, len: 36, callback:
+			function(150_F36){
+			//lists
+					textGene(150_F36, ".list");
+			}},
+	QUO: {start: 186, len: 36, callback:
+			function(186_F36){
+			//quotes
+					textGene(150_F36, ".quote");
+			}},
+	PAR: {start: 222, len: 36, callback:
+			function(222_F36){
+			//paragraph
+					paragraphGene(150_F36);
+			}},
+	HD1: {start: 258, len: 36, callback:
+			function(258_F36){
+			//heading1
+					textGene(258_F36, ".heading1");
+			}},
+	HD2: {start: 294, len: 36, callback:
+			function(294_F36){
+			//heading2
+					textGene(294_F36, ".heading2");
+			}},
+	TTL: {start: 330, len: 36, callback:
+			function(330_F36){
+			//title
+					textGene(330_F36, ".title");
+			}},
+	AUT: {start: 366, len: 36, callback:
+			function(366_F36){
+			//author
+					textGene(366_F36, ".author");
+			}}
+	   },
+   functions: {
+	textGene: function(gene, selector) {
+				var geneLen = 36;
+				var map = {readpoints: {
+		TYP:	{start: 1, len: 3, callback: function(FFF){
+					//set typeface
+				}},
+		STY: 	{start: 4, len: 1, callback: function(F){
+					//set style
+				}},
+		CAS:	{start: 5, len: 1, callback: function(F){
+					//set case
+				}},
+		ALI:	{start: 6, len: 1, callback: function(F){
+					//set alignment
+				}},
+		DEC:	{start: 7, len: 1, callback: function(F){
+					//set decoration
+				}},
+		SIZ:	{start: 8, len: 2, callback: function(FF){
+					//set size
+				}},
+		LDG:	{start: 10, len: 2, callback: function(FF){
+					//set leading (signed)
+				}},
+		BUL:	{start: 12, len: 1, callback: function(F){
+					//set bullet
+				}},
+		IN1:	{start: 13, len: 2, callback: function(FF){
+					//set 1st line indent (signed)
+				}},
+		INO: 	{start: 15, len: 2, callback: function(FF){
+					//set other line indent (signed)
+				}},
+		SPB: 	{start: 17, len: 2, callback: function(FF){
+					//set space before (signed)
+				}},
+		SPA: 	{start: 19, len: 2, callback: function(FF){
+					//set space after (signed)
+				}},
+		SPL: 	{start: 21, len: 2, callback: function(FF){
+					//set space left (signed)
+				}},
+		SPR:	{start: 23, len: 2, callback: function(FF){
+					//set space right (signed)
+				}},
+		FGC:	{start: 25, len: 6, callback: function(FFFFFF){
+					//set foreground color
+				}},
+		BGC: {start: 31, len: 6, callback: function(FFFFFF){
+					//set background color
+			}}}, functions: {}};
+
+			doCss(gene, map, selector);
+
+   		},
+   	paragraphGene: function(gene, selector) {
+   		//paragraph gene
+   		}
+	}
+}
+
+mapReader(map,genetics) {
+	for (point in map.readpoints) {
+		var startpoint = (point-1);
+		var endpoint =  startpoint + map.point.len;
+		var currentGene = genetics[startpoint:endpoint];
+
+		//need way of searching for functions in map.functions
+		// this.parent.functions.name() ??
+
+		map.point.callback(currentGene);
+	}
+	
+}

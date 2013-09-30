@@ -1,0 +1,155 @@
+Direction F
+		0	0 00 0 horizontal 
+
+		1	0 00 1 vertical
+		2	0 01 0 vertical 
+		3	0 01 1 vertical
+		4	0 10 0 vertical 
+		5	0 10 1 vertical
+
+		6	0 11 0 horizontal
+
+		7	0 11 1 vertical
+		8	1 00 0 vertical
+
+		9	1 00 1 horizontal
+
+		A	1 01 0 vertical
+		B	1 01 1 vertical
+		C	1 10 0 vertical
+		D	1 10 1 vertical
+		E	1 11 0 vertical
+
+		F	1 11 1 horizontal
+
+Dimensions FF FF
+		W   H
+		96  A8 (%) divide by 256
+
+		1001 0110 | 1010 1000
+
+Text Component (H1, H2, Text, Emphasis, Para, Quote, List)
+	typeface 	FFF
+	style		F
+					bold	10
+					italic	01
+					b. it.	11
+					roman	00
+
+					F -> 11 11
+					11 & 11 = 11 -> b. it
+					11 & 10 = 10 -> bold
+					11 & 00 = 00 -> roman
+					10 & 11 = 10 -> bold
+					10 & 10 = 10 -> bold
+					10 & 01 = 00 -> roman
+					10 & 00 = 00 -> roman
+
+					00 00 = 00 0
+					00 01 = 00 1
+					00 10 = 00 2
+					00 11 = 00 3
+					01 00 = 00 4 roman
+					01 01 = 01 5 italic
+					01 10 = 00 6 roman
+					01 11 = 01 7 italic
+					10 00 = 00 8 
+					10 01 = 00 9 roman
+					10 10 = 10 10 bold
+					10 11 = 10 11 bold it.
+					11 00 = 00 12 roman
+					11 01 = 01 13 italic
+					11 10 = 10 14 bold
+					11 11 = 11 15 bold it.
+
+					(etc.)
+	case		F
+					u&lc	11
+					upper	10
+					lower	01
+					rev ulc	00
+					
+					F -> 11 11
+					(same as with style, above)
+	alignment	F
+
+					F -> 10 01
+					10 + 01 = 011
+
+					rag right	000
+					rag left	001
+					rag cent	010
+					j. left 	011
+
+					j. full		100
+					j. right	101
+					j. center	110
+					(n/a)		111
+
+					using just F
+
+					00 00 = 00 rr
+					00 01 = 01 rl
+					00 10 = 10 c
+					00 11 = 11 lj
+					01 00 = 01 rl
+					01 01 = 11 lj
+					01 10 = 11 lj
+					01 11 =100 fj
+					10 00 = 10 c
+					10 01 = 11 lj
+					10 10 =100 fj
+					10 11 =101 rj
+					11 00 = 11 lj
+					11 01 =100 fj
+					11 10 =100 fj
+					11 11 =110 jc
+
+	decoration	F
+					none			00
+					underline		01
+					overline		10
+					linethrough		11
+
+					F -> 11 11
+					(& 2bits as above)
+
+	size		FF
+	leading 	FF (signed)
+
+	bullet		F
+
+
+	1st line sp	FF (signed)
+				1 000 0000 (0 to 128pts) 0x80 sign point
+			neg	^ 
+
+	oth line sp	FF (signed)
+
+	sp. before	FF (signed)
+	sp. after	FF (signed)
+	sp. left	FF (signed)
+	sp. right	FF (signed)
+
+	fg color	FF FF FF
+	bg color	FF FF FF
+
+Paragraph
+	indent 		FF (signed) <- nested style first word
+  * drop caps	(text) <- nested style 1st character
+		size
+		font
+		color
+  * subsequent caps (text) <- nested for x words
+	sp. before
+	sp. after
+	sp. left
+	sp. right
+
+Figure Placement
+	left/right/center
+	flush/knockout/float
+
+
+
+

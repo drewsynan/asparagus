@@ -1,0 +1,69 @@
+New Notes
+
+should include amount of scrolling in fitness ? (jquery plugins etc)
+
+add gene (long stretch of 111111's maybe) for color or monochrome
+
+feasibility test after crossover (also point-to-point crossover)
+
+LOL borders?
+
+most important things are fitness funtion and coding
+
+issues with fitness function: how to account for different users' timing (some fast, some slow)
+
+is time the best metric? is scrolling better? -> scrolling should use percentage of total since bigger fonts -> more scrolling
+
+===
+
+Admin console
+
+HTTP digest authentication (npm passport.js)
+
+text area for fitness function (?? syntax highlighting)
+need scrolling data
+
+Graph of average fitness per generation (d3.js)
+currently connected users
+
+calculation of "average" chromosome per generation (and real time)
+BigInt or BigNum (openssl) libraries for integer math (both support hex ints)
+probably best to keep the working average just in memory, and push to DB after each
+generation has "died"
+
+should average be recomputed with every new push? or after a specific number of milliseconds?
+how can jquery be used to animate the changes in parameters (if at all -> yes http://jqueryui.com/switchClass/)?
+
+genealogy pages > best way to visually trace parents
+	show chromosome map
+	and maybe a thumbnail > how to generate thumbnails. is there a webkit plugin?
+	compare two windows? side by side
+	how to load chromosomes? GET request on a form (_id)
+	need some way of viewing phenotype
+
+===
+
+Use views, for each module in /docs/ folder
+markup documents with jade templates
+separate out headers and scripts into seperate assets to be served from /lib/ static directory
+use routes?? so get('/v/:articleId' render ... etc
+
+===
+
+NEED to make/develop persistance -> also, delete all documents vs dropping the database on initialize to make
+compatible with Nodjitsu's setup
+
+===
+
+
+NEW TRANSCRIPTIONS FOR:
+Pictures (in text) class=inline-picture
+Photos (main focus) 
+Foot notes div class=footnote
+Epigraphs div class=epigraph
+
+
+TODO add code to transcriptions and lengthen genome
+
+X Figure out socket.io shit (can we connect to /) YES
+

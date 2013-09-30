@@ -1,0 +1,127 @@
+To Do (9/16)
+
+x Write Node.js random chromosome generator
+X markup articles
+x write client-side chromosome parser
+x (including colored box maker, needs md5 library)
+x write client-side timer
+
+WHAT ABOUT: Images, Footnotes ???
+
+=======
+x write crossover and mutation routines
+
+x set up database and individual queue
+store new individuals, update fitness scores, calculate averages
+work out session authentication and dynamics
+
+live analytics (? socket.io)
+
+
+============ New Architecture
+
+getXML -> serve HTML, generates a server newChrom() and content() event
+Client loads -> sends ready message
+server sends content, chromosome
+
+transcriber parses chromosome, creates css string, font loading string
+ascynchronous loading of webfonts
+run jQuery css updates
+
+listen for newChrom() update events (for analytics)
+
+KILL -> send deathEvent() (tells server also to cue up newChrom() event) -> jQuery unload fonts & reset CSS -> wait for server to push new chromosome
+
+parse as above, then render
+
+====
+Application Initialization
+
+Connect to database, if empty, generate population 0 with random individuals
+Otherwise, pull generation with largest generation number and push to SendStack
+
+Fire applicationReady() event
+
+====
+Datasctructures
+
+var Database =
+	{generations: {
+		number: 1,
+		individuals: [{id: ID, parent1: ID, parent2: ID, chrom:"xxxxxxxx", md5:md5String, time: Null},{},{},{}]
+	},{
+		number: 2,
+		individuals: [{},{},{},{}]
+	}};
+
+var SendStack = [];
+var currentGeneration = num;
+
+=======
+Serverside timeline
+
+need queues for emitters (multiple requests while waiting for ready states)
+
+get("/author"), connect socket -> triggers 
+			   -> chromosomeRequest(type=[next | random], destination=[socket.sid]), 
+				  contentRequest(contentId, destination=[socket.sid])
+
+				  wait for chromosomeReady(destination), contentReady(destination)
+				  and push to destination when client sends "listening" message
+
+
+				  getChrom(next) -> stack.pop() and send. If it's the end of the stack, 1) check to see if a
+				  					new generation has been requested. If so, wait. If not, 2)
+				  					check to see if any individuals in the DB don't have deathtimes ->
+				  					create new stack and serve from this.
+
+				  					If noDeathTimes returns empty, create a requestNewGeneration()
+
+				  					wait for generationReady(), then pop new stack
+
+				  requestNewGeneration() ->
+				  					get top N indiviuals from previous generation.
+				  					If(elitism) save top T individuals.
+				  					Randomly (with probability crossoverProb) crossover() pairs of individuals until generationLength is met
+				  					Push new generation to database
+				  					Increment currentGeneration variable
+				  					Push new generation to sendStack
+				  					trigger generationReady()
+
+				  crossover(parent1, parent2) ->
+				  					pick random pivot from [1,genome.length-1]
+				  					take genome from left of pivot from parent1
+				  					take genome from right of pivot from parent2
+				  					combine to make new chromosome
+				  					convert to binary string
+				  					mutate each bit with probability (mutation probability)
+				  					convert to hex
+				  					return hexString
+				  deathEvent() ->
+				  					If sender is still connected, fire chromosomeRequest(destination)
+
+				  					look up ID in databse, if no death time, record time
+				  					recalculate average fitness for generation
+				  					push newAverageChrom() to average listeners
+
+				  					if death time already exists, don't record time
+
+Client
+		load html shim
+		load communication libraries/processing libraries
+		connect socket, wait for server to respond with either content or chromsome
+
+		on getting chromosome -> transcribe() to a css string -> trigger transcribed() event, webfontloader()
+		on getting content -> push content into body container -> trigger contentFilled() event
+
+		renderer listens first for webfontsloaded() and transcribed()
+		randerer when all fonts are loaded and css string ready -> appends css
+		wait for contentFilled() -> then show page, start timer
+
+		KILL
+		stop timer, push death() event to server, fade out body
+		unload fonts, css
+		wait for new chrom() from server
+
+
+

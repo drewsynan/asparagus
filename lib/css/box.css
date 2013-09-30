@@ -1,0 +1,89 @@
+/*CSS FOR FLOATING BOX*/
+.md5 {
+	font-size: 6px;
+	font-weight: bold;
+}
+#genome-map {
+	padding-left: 2px;
+	padding-top: 3px;
+	width: 120px;
+	
+}
+#genome-info {
+	margin-top: 5px;
+	/* display: none; */
+	font-family:"Courier New", Courier, monospace;
+	font-size:12px;
+	/*background-color: #FFF;*/
+	margin-left: auto;
+	margin-right: auto;
+}
+.floating-box {
+	border: 1px solid #CCC;
+	padding: 4px;
+	width: 130px;
+	background-color: rgba(255,255,255,.9);
+	position: fixed;
+	top: 5px;
+	left: 5px;
+	
+}
+.buttons {
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	/*font-style:italic; */
+	font-size: 9.5pt;
+	vertical-align:middle;
+	color:#333;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 2pt;
+}
+.kill {
+	font-weight: bold;
+	cursor:crosshair;
+}
+.info {
+	cursor: help;
+}
+.bottomtext {
+	padding-left: 4px;
+}
+.about-ga {
+	/*text-decoration: underline;*/
+	margin: 0;
+	margin-bottom: 5px;
+}
+
+.about-ga a:link, a:visited {
+	color: black;
+	text-decoration: none;
+}
+.about-ga a:hover {
+	border-bottom: 1px solid #C00;
+}
+
+.home {
+	cursor: w-resize;
+}
+.home a:link, a:visited {
+	text-decoration: none;
+	cursor: w-resize;
+	padding-top: 5px;
+	color: black;
+}
+
+.box {
+		width: 10px;
+		height: 10px;
+		float: left;
+		margin: 0px;
+		background-color: #CCC;
+		/*border: 1px solid white;*/
+	}
+.spacer {
+	width: 93px;
+	background-color: white;
+}
+.selected {
+	border: 1px dashed white;
+}

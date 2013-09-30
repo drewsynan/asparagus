@@ -1,0 +1,61 @@
+chromosome = {
+	direction: {'horizontal','vertical'},
+	dimensions: {column-width: int, column-height: int},
+	heading1: {typeface: int, style: int, size: int, color: int, spacebefore: int, space after: int},
+	heading2: {typeface: int, style: int, size: int, color: int},
+	text: {typeface: int, style: int, size: int, linespacing: int, color: int, case: (stet, uc, lc, reversedulc)},
+	emphasis: {typeface: int, style: int, size: int, color: int},
+	paragraph: {dropcaps: (yes, no), indent: int, spacebefore: int, spaceafter: int}
+}
+
+colors:     H          S          V      (32 bits)
+		1111 1111  1111 1111  1111 1111
+
+direction: (horizontal/vertical) (2 bits) -- 1 byte
+dimensions: (20 bits) -- 6 bytes
+	column-width: (10 bits) -- 3 bytes
+	column-height: (10 bits) -- 3 bytes
+heading1: (101 bits)
+	typeface: (10 bits) -- 3 bytes
+	style: (2 bits) -- 1 byte
+	case: (UC, lc, UaLC, ruALc) -> 2 bits -- 1 byte
+	text-decoration: (none, underline, overline, line-through) -> 2 bits
+	size: (0-128 -> 7 bits)
+	space-before: (7 bits)
+	space-after: (7 bits)
+	leading: (7bits)
+	fgcolor: (32 bits)
+	bgcolor: (32 bits)
+heading2: (101 bits)
+	(as above)
+text: (94 bits)
+	typeface: (10 bits)
+	style: (2 bits)
+	case: (2 bits)
+	text-decoration: (2 bits)
+	size: (7 bits)
+	linespacing: (7 bits)
+	fgcolor: (32 bits)
+	bgcolor: (32 bits)
+emphasis: (87 bits)
+	typeface: (10 bits)
+	style: (2 bits)
+	text-decoration: (2 bits)
+	case: (2 bits)
+	size: (7 bits)
+	fgcolor: (32 bits)
+	bgcolor: (32 bits)
+paragraph: (70 bits)
+	dropcaps: (2 bits)
+	dropcap-size: (7 bits)
+	dropcap-font: (7 bits)
+	dropcap-color: (32 bits)
+	indent: (8 bits, 7 bit signed)
+	space-before: (7 bits)
+	space-after: (7 bits)
+
+470 bits long
+
+
+
+10 1110101011 1010101000 0001010101011111111101111101101010111101101010111010111010101001110101011010100101011010111111101011101010111010101000000101010101111111110111110110101011110110101011101011101010100111010101101010010101101011111110101110101011101010100000010101010111111111011111011010101111011010101110101110101010011101010110101001010110101111111010111010101110101010000001010101011111111101111101101010111101101010111010111010101001110101011010100101011010111111

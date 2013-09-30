@@ -1,0 +1,39 @@
+<html>
+<head>
+<script>
+	var selector = "hello:";
+	var map = {
+		readpoints: {
+			DIR: {start: 1, len: 1, callback: function(F){
+				functions.parse1();
+				}},
+			WID: {start:2, len: 4, callback: function(F){
+				functions.parse4(F);
+			}}
+		},
+		functions: {
+			parse1: function(F) {
+				alert("parse1");
+				},
+			parse4: function(FFFF) {
+				alert(FFFF);
+			}
+		}
+	};
+
+	function mapReader(map,genetics) {
+		readpoints = map.readpoints;
+		functions = map.functions;
+		for (point in readpoints) {
+			map.readpoints[point].callback("string");
+
+		}
+	};
+
+	mapReader(map,"12345");
+
+</script>
+</head>
+<body>
+</body>
+</html>
