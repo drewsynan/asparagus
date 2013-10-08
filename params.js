@@ -8,7 +8,8 @@ var params = {
 	crossoverRate: 0.85,
 	mutationRate: 0.05,
 	currentGeneration: 0,
-	fitnessFunction: function(t) {return t}
+	fitnessFunction: function(t) {return t},
+	resume: true
 };
 
 module.exports = params;

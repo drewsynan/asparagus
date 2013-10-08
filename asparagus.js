@@ -58,7 +58,11 @@ function asparagus() {
 			//mainAppScope.boot(); //FIX THIS!! use a listener in app.js to call AmAsp.boot()
 		});
 
-		createGenerationZero();
+		if (! params.resume) {
+			createGenerationZero();
+		} else {
+			loadLatestGeneration();
+		};
 
 		/*/TESTS //////////
 		testMutate();
@@ -159,6 +163,53 @@ function asparagus() {
 	};
 
 	/////CLASSES//////
+	function loadLatestGeneration() {
+		var lastGen = 0;
+
+		var db = nano.use(params.dbName);
+		db.view('aggregates', 'generation_stats', function(err,body) {
+			if(!err) {
+				if(body.total_rows != 0) {
+					body.rows.forEach(function(doc) {
+						lastGen = doc.value.max;
+						console.log(lastGen);
+					});
+				};
+			} else if(err){
+				if(err.message === 'no_db_file') {
+					console.log("No database file!");
+					console.log("Creating Generation zero");
+					createGenerationZero();
+				} else {
+					console.log(err.message);
+				}
+			};
+			
+			params.currentGeneration = lastGen;
+
+			console.log("Loading generation " + params.currentGeneration);
+
+			db.view('aggregates','no_timing_info',{keys:[params.currentGeneration]}, function(err,body){
+				if(!err) {
+					body.rows.forEach(function(doc){
+						sendStack.push(doc.value);
+					});
+					//console.log(sendStack);
+				}
+				//params.currentGeneration = nextGenVal;
+				//checkSendStack();
+				//initial loading populstion done event
+				console.log(sendStack.length + " individuals loaded");
+				initializer.emit("setupInitialized");
+			});
+		});
+
+
+		//console.log(lastGen);
+
+		params.currentGeneration = lastGen;
+
+	};
 
 	function createGenerationZero() {
 
@@ -187,6 +238,10 @@ function asparagus() {
 						"total_fitness": {
 							"map" : function(doc) { if(doc.time != "none") { emit(doc.generation, doc.fitness)} },
 							"reduce": "_sum"
+						},
+						"generation_stats": {
+							"map" : function(doc) { if(doc) { emit(doc.generation, doc.generation)} },
+							"reduce" : "_stats"
 						}
 					}
 
