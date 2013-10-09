@@ -5,6 +5,7 @@ function asparagus() {
 	, server = require('http').createServer(app)
 	, io = require('socket.io').listen(server)
 	, crypto = require('crypto')
+	, BigInt = require('bigint-node')
 	, _ = require('underscore')
 	, events = require('events');
 
@@ -46,7 +47,7 @@ function asparagus() {
 			params = initParams;
 		}*/
 
-		nano = require('nano')('http://' + params.dbHost + ":" + params.dbPort );
+		nano = require('nano')(params.dbProtocol + '://' + params.dbHost + ":" + params.dbPort );
 		dbName = params.dbName;
 
 		initializer = new events.EventEmitter();
@@ -163,6 +164,19 @@ function asparagus() {
 	};
 
 	/////CLASSES//////
+	function chromosomeAverager() {
+
+		/*Weighted Average
+			x_bar = Sum(fitness_i * chromosome_i) / Sum(fitness_i)
+		*/
+
+		//big int for pieces
+
+		this.pushIndividual = function(individual){};
+
+	};
+
+	/////Private Methods/////
 	function loadLatestGeneration() {
 		var lastGen = 0;
 
@@ -274,13 +288,14 @@ function asparagus() {
 		var db = nano.use(params.dbName);
 
 		var t = individual.time;
-		var f = fitness(t);
+		var s = individual.scroll;
+		var f = fitness(t,s);
 		individual["fitness"] = f;
 
 		db.insert(individual, individual._id, function(err, body) {});
 	} //end storeIndividual()
 
-	function fitness(t) {
+	function fitness(t, s) {
 		//squared fitness function
 		//return t*t;
 
@@ -294,7 +309,7 @@ function asparagus() {
 		//console.log("-------");
 
 		var fitFunc = params.fitnessFunction;
-		calcFitness = fitFunc(t);
+		calcFitness = fitFunc(t, s);
 
 		return calcFitness;
 	}; //end fitness()
@@ -442,6 +457,7 @@ function asparagus() {
 					parent1: parent1._id,
 					parent2: parent2._id,
 					time: "none",
+					scroll: 0,
 					fitness: "none"
 				};
 				nextGen.push(child);
@@ -552,7 +568,7 @@ function asparagus() {
 
 		var md5sum = crypto.createHash('md5');
 
-		var chromosomeLength = 201; // Chromosome length in BYTES
+		var chromosomeLength = 327; //201; // Chromosome length in BYTES (1 Byte = 2 hex digits)
 		var buf = crypto.randomBytes(chromosomeLength);
 		var randomChrom = buf.toString('hex');
 		md5sum.update(randomChrom);
@@ -578,6 +594,7 @@ function asparagus() {
 					parent1: "none",
 					parent1: "none",
 					time: "none",
+					scroll: 0,
 					fitness: "none"};
 		return returnJSON;
 	}; // end createRandomChromosome

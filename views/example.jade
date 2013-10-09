@@ -1,0 +1,283 @@
+!!! 5
+html
+  head
+    title The Inimitible Jeeves
+    meta(charset='UTF-8')
+    link(rel='stylesheet', href='/lib/css/box.css')
+    // <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    script(src='/lib/offline/jquery-1.9.1.js')
+    script(src='/socket.io/socket.io.js')
+    script(src='/lib/js/idle-timer.min.js')
+    script(src='/lib/js/frontend-timer.js')
+    script(src='/lib/js/frontend-loader.js')
+    script(src='/lib/js/frontend-genome.js')
+    script(src='/lib/js/frontend-box.js')
+    script(src='/lib/js/frontend-init.js')
+  body(style='display: none')
+    script(src='/lib/js/frontend-doc-ready.js')
+    // FLOATING BOX
+    .floating-box
+      .buttons.home
+        a(href='../') &bsol;&bsol;&bsol;&bsol; Home &sol;&sol;&sol;&sol;
+      hr
+      .info-container
+        .buttons.info &colon;&colon;&colon;&colon;&colon;&colon; Info &colon;&colon;&colon;&colon;&colon;&colon;
+        #genome-info
+          #genome-map
+            p.about-ga
+              a(href='../#introduction') About the Project
+            #box-container
+          .bottomtext
+            p &NonBreakingSpace;
+            p
+              | Generation
+              strong
+                span#generation
+              br
+              | Individual
+              strong
+                span#individual
+              br
+              span.md5
+              br
+              //
+                 
+                				  Parent 1: <spam class="Parent1"></spam>
+                				  Parent 2: <span class="Parent2"></span>
+                				  
+      hr
+      .buttons.kill &period;&colon;&period;&colon;&period;&colon;KILL&colon;&period;&colon;&period;&colon;&period;
+    // END FLOATING BOX
+    // ARTICLE BODY
+    //
+       (elements)
+      	  <p class="text">
+      	  <h1 class="title">
+      	  <h1 class="heading1">
+      	  <h2 class="heading2">
+      	  <h2 class="author">
+      	  use <em> not <i>
+      	
+      	  <div class="epigraph"><p>...
+      	  <div class="inline-picture"><img>...
+      	  <div class="display-picture"><img>...
+      	  <div class="footnote"><p>...
+      	  <span class="footnotenumber">text...
+    .articlebody
+      #verticalcolumn.column
+        h1.title Jeeves Exerts the Old Cerebellum
+        h2.author P&period;G&period; Wodehouse
+        p.text &OpenCurlyQuote;Morning&comma; Jeeves&comma;&rsquor; I said&period;
+        p.text &OpenCurlyQuote;Good morning&comma; sir&comma;&rsquor; said Jeeves&period;
+        p.text
+          | He put the good old cup of tea softly on the table by my bed&comma; and I took a refreshing sip&period; Just right&comma; as usual&period; Not to hot&comma; not too sweet&comma; not too weak&comma; not too strong&comma; not too much milk&comma; and not a drop spilled in the saucer&period; A most amazing cove&comma; Jeeves&period; So dashed competent in every respect&period; I&rsquor;ve said it before&comma; and I&rsquor;ll say it again&period; I mean to say&comma; take just one small instance&period; Every other valet I&rsquor;ve ever had used to barge into my room in the morning while I was still asleep&comma; causing much misery&semi; but Jeeves seems to know when I&rsquor;m awake by a sort of telepathy&period; He always floats in with the cup exactly two minutes after I come to life&period; Makes a deuce of a lot of difference to a fellow&rsquor;s day&period;
+        p.text &OpenCurlyQuote;How&rsquor;s the weather&comma; Jeeves&quest;&rsquor;
+        p.text &OpenCurlyQuote;Exceptionally clement&comma; sir&period;&rsquor;
+        p.text Anything in the papers&quest;&rsquor;
+        p.text &OpenCurlyQuote;Some slight friction threatening in the Balkans&comma; sir&period; Otherwise&comma; nothing&period;&rsquor;
+        p.text
+          | &OpenCurlyQuote;I say&comma; Jeeves&comma; a man I met at the club last night told me to put my shirt on Privateer for the two o&rsquor;clock race this afternoon&period; How about it&quest;&rsquor;
+        p.text &OpenCurlyQuote;I should not advocate it&comma; sir&period; The stable is not sanguine&period;&rsquor;
+        p.text
+          | That was enough for me&period; Jeeves knows&period; How&comma; I couldn&rsquor;t say&comma; but he knows&period; There was a time when I would laugh lightly&comma; and go ahead&comma; and lose my little all against his advice&comma; but not now&period;
+        p.text &OpenCurlyQuote;Talking of shirts&comma;&rsquor; I said&comma; &OpenCurlyQuote;have those mauve ones I ordered arrived yet&quest;&rsquor;
+        p.text &OpenCurlyQuote;Yes&comma; sir&period; I sent them back&period;&rsquor;
+        p.text &OpenCurlyQuote;Sent them back&quest;&rsquor;
+        p.text &OpenCurlyQuote;Yes&comma; sir&period; They would not have become you&period;&rsquor;
+        p.text
+          | Well&comma; I must say I&rsquor;d thought fairly highly of those shirtings&comma; but I bowed to superior knowledge&period; Weak&quest; I don&rsquor;t know&period; Most fellows&comma; no doubt&comma; are all for having their valets confine their activities to creasing trousers and what not without trying to run the home&semi; but it&rsquor;s different with Jeeves&period; Right from the first day he come to me&comma; I have looked on him as a sort of guide&comma; philosopher and friend&period;
+        p.text
+          | &OpenCurlyQuote;Mr Little rang up on the telephone a few moments ago&comma; sir&period; I informed him that you were not yet awake&period;&rsquor;
+        p.text &OpenCurlyQuote;Did he leave a message&quest;&rsquor;
+        p.text
+          | &OpenCurlyQuote;No&comma; sir&period; He mentioned that he had a matter of importance to discuss with you&comma; but confided no details&period;&rsquor;
+        p.text &OpenCurlyQuote;Oh&comma; well&comma; I expect I shall be seeing him at the club&period;&rsquor;
+        p.text &OpenCurlyQuote;No doubt&comma; sir&period;&rsquor;
+        p.text
+          | I wasn&rsquor;t what you might call in a fever of impatience&period; Bingo little is a chap I was at school with&comma; and we see a lot of each other still&period; He&rsquor;s the nephew of old Mortimer Little&comma; who retired from business recently with a goodish pile&period; &lpar;You&rsquor;ve probably heard of Little&rsquor;s Liniment &ndash; It Limbers Up the Legs&period;&rpar; Bingo biffs about London on a pretty comfortable allowance given him by his uncle&comma; and leads on the whole a fairly unclouded life&period; It wasn&rsquor;t likely that anything which he described as a matter of importance would turn out to be really so frightfully important&period; I took it that he had discovered some new brand of cigarette which he wanted me to try&comma; or something like that&comma; and didn&rsquor;t spoil my breakfast by worrying&period;
+        p.text
+          | After breakfast I lit a cigarette and went to the open window to inspect the day&period; It certainly was one of the best and brightest&period;
+        p.text &OpenCurlyQuote;Jeeves&comma;&rsquor; I said&period;
+        p.text
+          | &OpenCurlyQuote;Sir&quest;&rsquor; said Jeeves&period; He had been clearing away the breakfast things&comma; but at the sound of the young master&rsquor;s cheesed it courteously&period;
+        p.text &OpenCurlyQuote;You were absolutely right about the weather&period; It is a juicy morning&period;&rsquor;
+        p.text &OpenCurlyQuote;Decidedly&comma; sir&period;&rsquor;
+        p.text &OpenCurlyQuote;Spring and all that&period;&rsquor;
+        p.text &OpenCurlyQuote;Yes&comma; sir&period;&rsquor;
+        p.text &OpenCurlyQuote;In the spring&comma; Jeeves&comma; a livelier iris gleams upon the burnished dove&period;&rsquor;
+        p.text &OpenCurlyQuote;So I have been informed&comma; sir&period;&rsquor;
+        p.text
+          | &OpenCurlyQuote;Right ho&excl; Then bring me my whangee&comma; my yellowest gloves&comma; and the old green Homburg&period; I&rsquor;m going into the Park to do pastoral dances&period;&rsquor;
+        p.text
+          | I don&rsquor;t know if you know that sort of feeling you get on these days round about the end of April and the beginning of May&comma; when the sky&rsquor;s a light blue&comma; with cotton-wool clouds&comma; and there&rsquor;s a bit of a breeze blowing from the west&quest; Kind of uplifted feeling&period; Romantic&comma; if you know what I mean&period; I&rsquor;m not much of a ladies&rsquor; man&comma; but on this particular morning&comma; it seemed to me that what I really wanted was some charming girl to buzz up and ask me to save her from assassins or something&period; So that is was a bit of an anti-climax when I merely ran into young Bingo Little&comma; looking perfectly foul in a crimson satin tie decorated with horseshoes&period;
+        p.text &OpenCurlyQuote;Hallo&comma; Bertie&comma;&rsquor; said Bingo&period;
+        p.text
+          | &OpenCurlyQuote;My God&comma; man&excl;&rsquor; I gawped&period; &OpenCurlyQuote;The cravat&excl; The gent&rsquor;s neckwear&excl; Why&quest; For what reason&quest;&rsquor;
+        p.text &OpenCurlyQuote;Oh&comma; the tie&quest;&rsquor; He blushed&period; &OpenCurlyQuote;I &ndash; er &ndash; I was given it&period;&rsquor;
+        p.text
+          | He seemed embarrassed&comma; so I dropped the subject&period; We toddled along a bit&comma; and sat down on a couple of chairs by the Serpentine&period;
+        p.text &OpenCurlyQuote;Jeeves tells me you want to talk to me about something&comma;&rsquor; I said&period;
+        p.text &OpenCurlyQuote;Eh&quest;&rsquor; said Bingo&comma; with a start&period; &OpenCurlyQuote;Oh yes&comma; yes&period; Yes&period;&rsquor;
+        p.text
+          | I waited for him to unleash the topic of the day&comma; but he didn&rsquor;t seem to want to get along&period; Conversation languished&period; He stared straight ahead of him in a glassy sort of manner&period;
+        p.text &OpenCurlyQuote;I say&comma; Bertie&comma;&rsquor; he said&comma; after a pause of about and hour and a quarter&period;
+        p.text &OpenCurlyQuote;Hallo&excl;&rsquor;
+        p.text &OpenCurlyQuote;Do you like the name Mabel&quest;&rsquor;
+        p.text &OpenCurlyQuote;No&period;&rsquor;
+        p.text &OpenCurlyQuote;No&quest;&rsquor;
+        p.text &OpenCurlyQuote;No&period;&rsquor;
+        p.text
+          | &OpenCurlyQuote;You don&rsquor;t think there&rsquor;s a kind of music in the word&comma; like the wind rustling gently through the tree-tops&quest;&rsquor;
+        p.text &OpenCurlyQuote;No&period;&rsquor;
+        p.text He seemed disappointed for a moment&semi; then cheered up&period;
+        p.text
+          | &OpenCurlyQuote;Of course&comma; you wouldn&rsquor;t&period; You always were a fatheaded worm without any soul&comma; weren&rsquor;t you&quest;&rsquor;
+        p.text &OpenCurlyQuote;Just as you say&period; Who is she&quest; Tell me all&period;&rsquor;
+        p.text
+          | For I realized now that poor old Bingo was going through it once again&period; Ever since I have known him &ndash; and we were at school together &ndash; he has been perpetually falling in love with someone&comma; generally in the spring&comma; which seems to act on him like magic&period; At school he had the finest collection of actresses&rsquor; photographs of anyone of this time&semi; and at Oxford his romantic nature was a byword&period;
+        p.text &OpenCurlyQuote;You&rsquor;d better come along and meet her at lunch&comma;&rsquor; he said&comma; looking at his watch&period;
+        p.text &OpenCurlyQuote;A ripe suggestion&comma;&rsquor; I said&period; &OpenCurlyQuote;Where are you meeting her&quest; At the Ritz&quest;&rsquor;
+        p.text &OpenCurlyQuote;Near the Ritz&period;&rsquor;
+        p.text
+          | He was geographically accurate&period; About fifty yards east of the Ritz there is one of those blighted tea-and-bun shops you see dotted all over London&comma; and into this&comma; if you&rsquor;ll believe me&comma; young Bingo dived like a homing rabbit&semi; and before I had time to say a word we were wedged in at a table&comma; on the brink of a silent pool of coffee left there by and early luncher&period;
+        p.text
+          | I&rsquor;m bound to say I couldn&rsquor;t quite follow the development of the scenario&period; Bingo&comma; while not absolutely rolling in the stuff&comma; has always had a fair amount of the ready&period; Apart form what he got from his uncle&comma; I knew that he had finished up the jumping season well on the right side of the ledger&period; Why&comma; then&comma; was he lunching the girl at this God-forsaken eatery&quest; It couldn&rsquor;t be because he was hard up&period;
+        p.text Just then the waitress arrived&period; Rather a pretty girl&period;
+        p.text
+          | &OpenCurlyQuote;Aren&rsquor;t we going to wait &ndash;&quest;&rsquor; I started to say to Bingo&comma; thinking it somewhat thick that&comma; in addition to asking a girl to lunch with him in a place like this&comma; he should fling himself on the foodstuffs before she turned up&comma; when I caught sight of his face&comma; and stopped&period;
+        p.text
+          | The man was goggling&period; His entire map was suffused with a rich blush&period; He looked like the Soul&rsquor;s Awakening done in pink&period;
+        p.text &OpenCurlyQuote;Hullo&comma; Mabel&excl;&rsquor; he said&comma; with a sort of gulp&period;
+        p.text &OpenCurlyQuote;Hallo&excl;&rsquor; said the girl&period;
+        p.text &OpenCurlyQuote;Mabel&comma;&rsquor; said Bingo&comma; &OpenCurlyQuote; this is Bertie Wooster&comma; a pal of mine&period;&rsquor;
+        p.text &OpenCurlyQuote;Pleased to meet you&comma;&rsquor; she said&period; &OpenCurlyQuote;Nice morning&period;&rsquor;
+        p.text &OpenCurlyQuote;Fine&comma;&rsquor; I said&period;
+        p.text &OpenCurlyQuote;You see I&rsquor;m wearing the tie&comma;&rsquor; said Bingo&period;
+        p.text &OpenCurlyQuote;It suits you beautiful&comma;&rsquor; said the girl&period;
+        p.text
+          | Personally&comma; if anyone had told me that a tie like that suited me&comma; I should have risen and struck them on the mazzard&comma; regardless of their age and sex&semi; but poor old Bingo simply got all flustered with gratification&comma; and smirked in the most gruesome manner&period;
+        p.text
+          | &OpenCurlyQuote;Well&comma; what&rsquor;s it going to be today&quest;&rsquor; asked the girl&comma; introducing the business touch into the conversation&period; Bingo studied the menu devoutly&period;
+        p.text
+          | &OpenCurlyQuote;I&rsquor;ll have a cup of cocoa&comma; cold veal and ham pie&comma; slice of fruitcake&comma; and a macaroon&period; Same for you&comma; Bertie&quest;&rsquor;
+        p.text
+          | I gazed at the man&comma; revolted&period; That he could have been a pal of mine all these years&comma; and think me capable of insulting the old tum with this sort of stuff cut me to the quick&period;
+        p.text
+          | &OpenCurlyQuote;Or how about a bit of hot steak-pudding&comma; with a sparkling limado to wash it down&quest;&rsquor; Said Bingo&period;
+        p.text
+          | You know&comma; the way love can change a fellow is really frightful to contemplate&period; This chappie before me&comma; who spoke in that absolutely careless way of macaroons and limado&comma; was the man I had seen in happier days telling the head-waiter at Claridge&rsquor;s exactly how he wanted the chef to prepare the
+          em sole frite au gourmet aux champignons
+          | &comma; and saying he would jolly well sling it back if it wasn&rsquor;t just right&period; Ghastly&excl; Ghastly&excl; A roll and butter and a small coffee seemed the only things on the list that hadn&rsquor;t been specially prepared by the nastier-minded members of the Borgia family for people they had a particular grudge against&comma; so I chose them&comma; and Mabel hopped it&period;
+        p.text &OpenCurlyQuote;Well&quest;&rsquor; Said Bingo rapturously&period;
+        p.text I took it that he wanted my opinion of the female poisoner who had just left us&period;
+        p.text &OpenCurlyQuote;Very nice&comma;&rsquor; I said&period;
+        p.text He seemed dissatisfied&period;
+        p.text &OpenCurlyQuote;You don&rsquor;t think she&rsquor;s the most wonderful girl you ever saw&quest;&rsquor; se said wistfully&period;
+        p.text &OpenCurlyQuote;Oh&comma; absolutely&excl;&rsquor; I said&comma; to appease the blighter&period; &OpenCurlyQuote;Where did you meet her&quest;&rsquor;
+        p.text &OpenCurlyQuote;At a subscription dance at Camberwell&period;&rsquor;
+        p.text &OpenCurlyQuote;What on earth were you doing at a subscription dance at Camberwell&quest;&rsquor;
+        p.text
+          | &OpenCurlyQuote;Your man Jeeves asked me if I would by a couple of tickets&period; It was in aid of some charity or other&period;&rsquor;
+        p.text &OpenCurlyQuote;Jeeves&quest; I didn&rsquor;t know he went in for that sort of thing&period;&rsquor;
+        p.text
+          | &OpenCurlyQuote;Well&comma; I suppose he has to relax a bit every now and then&period; Anyway&comma; he was there&comma; swinging a dashed efficient show&period; I hadn&rsquor;t meant to go at first&comma; but I turned up for a lark&period; Oh&comma; Bertie&comma; think what I might have missed&excl;&rsquor;
+        p.text &OpenCurlyQuote;What might you have missed&quest;&rsquor; I asked&comma; the old lemon being slightly clouded&period;
+        p.text &OpenCurlyQuote;Mabel&comma; you chump&period; If I hadn&rsquor;t gone I shouldn&rsquor;t have met Mabel&period;&rsquor;
+        p.text &OpenCurlyQuote;Oh&comma; ah&excl;&rsquor;
+        p.text
+          | At this point Bingo fell in to a species of trance&comma; and only came out of it to wrap himself round the pie and the macaroon&period;
+        p.text &OpenCurlyQuote;Bertie&comma;&rsquor; he said&period; &OpenCurlyQuote;I want your advice&period;&rsquor;
+        p.text &OpenCurlyQuote;Carry on&period;&rsquor;
+        p.text
+          | &OpenCurlyQuote;At least&comma; not your advice&comma; because that wouldn&rsquor;t be much good to anybody&period; I mean&comma; you&rsquor;re a pretty consummate old ass aren&rsquor;t you&quest; Not that I want to hurt your feelings&comma; of course&period;&rsquor;
+        p.text &OpenCurlyQuote;No&comma; no&comma; I see that&period;&rsquor;
+        p.text
+          | &OpenCurlyQuote;What I which you would do is to put the whole thing to that fellow Jeeves of yours&comma; and see what he suggests&period; You&rsquor;ve often told me that he has helped other pals of yours out of messes&period; From what you tell me&comma; he&rsquor;s by way of being the brains of the family&period;&rsquor;
+        p.text &OpenCurlyQuote;He&rsquor;s never let me down yet&period;&rsquor;
+        p.text &OpenCurlyQuote;Then put my case to him&period;&rsquor;
+        p.text &OpenCurlyQuote;What case&quest;&rsquor;
+        p.text &OpenCurlyQuote;My problem&period;&rsquor;
+        p.text &OpenCurlyQuote;What problem&quest;&rsquor;
+        p.text
+          | &OpenCurlyQuote;Why&comma; you poor old fish&comma; my uncle&comma; of course&period; What do you think my uncle&rsquor;s going to say to all this&quest; If I sprang it on him cold&comma; he&rsquor;d tie himself in knots on the hearthrug&period;&rsquor;
+        p.text &OpenCurlyQuote;One of these emotional johnnies&comma; eh&quest;&rsquor;
+        p.text &OpenCurlyQuote;Somehow or other his mind has got to be prepared to receive the news&period; But how&quest;&rsquor;
+        p.text &OpenCurlyQuote;Ah&excl;&rsquor;
+        p.text
+          | &OpenCurlyQuote;That&rsquor;s a lot of help&comma; that &OpenCurlyDoubleQuote;Ah&rdquor;&excl; You see&comma; I&rsquor;m pretty well dependent on the old boy&period; If he cut off my allowance&comma; I should be very much in the soup&period; So you put the whole binge to Jeeves&comma; and see if he can&rsquor;t scare up a happy ending somehow&comma; tell him my future is in his hands&comma; and if the wedding bells ring out&comma; he can rely on me&comma; even unto half my kingdom&period; Well&comma; call it ten quid&period; Jeeves would exert himself with then quid on the horizon&comma; what&quest;&rsquor;
+        p.text &OpenCurlyQuote;Undoubtedly&comma;&rsquor; I said&period;
+        p.text
+          | I wasn&rsquor;t in the least surprised at Bingo wanting to lug Jeeves into his private affairs like this&period; It was the first thing I would have thought of doing myself if I had been in any hole of any description&period; As I have frequently had occasion to observe&comma; he is a bird of the ripest intellect&comma; full of bright ideas&period; If anybody could fix things for poor old Bingo&comma; he could&period;
+        p.text I stated the case to him that night after dinner&period;
+        p.text &OpenCurlyQuote;Jeeves&period;&rsquor;
+        p.text &OpenCurlyQuote;Sir&quest;&rsquor;
+        p.text &OpenCurlyQuote;Are you busy just now&quest;&rsquor;
+        p.text &OpenCurlyQuote;No&comma; sir&period;&rsquor;
+        p.text &OpenCurlyQuote;I mean&comma; not doing anything in particular&quest;&rsquor;
+        p.text
+          | &OpenCurlyQuote;No&comma; sir&period; It is my practise at this hour to read some improving book&semi; but if you desire my services&comma; this can easily be postponed&comma; or&comma; indeed abandoned altogether&period;&rsquor;
+        p.text &OpenCurlyQuote;Well&comma; I want your advice&period; It&rsquor;s about Mr Little&period;&rsquor;
+        p.text
+          | &OpenCurlyQuote;Young Mr Little&comma; sir&comma; or the elder Mr Little&comma; his uncle who lives in Pounceby Gardens&quest;&rsquor;
+        p.text
+          | Jeeves seemed to know everything&period; Most amazing thing&period; I&rsquor;d been pally with Bingo practically all my life&comma; and yet I didn&rsquor;t remember having heard that his uncle lived anywhere in particular&period;
+        p.text &OpenCurlyQuote;How did you know he lived in Pounceby Gardens&quest;&rsquor; I said&period;
+        p.text
+          | &OpenCurlyQuote;I am on terms of some intimacy with the elder Mr Little&rsquor;s cook&comma; sir&period; In fact&comma; there is an understanding&period;&rsquor;
+        p.text
+          | I&rsquor;m bound to say that this gave me a bit of a start&period; Somehow I&rsquor;d never thought of Jeeves going in for that sort of thing&period;
+        p.text &OpenCurlyQuote;Do you mean you&rsquor;re engaged&quest;&rsquor;
+        p.text &OpenCurlyQuote;It may be said to amount to that&comma; sir&period;&rsquor;
+        p.text &OpenCurlyQuote;Well&comma; well&excl;&rsquor;
+        p.text
+          | &OpenCurlyQuote;She is a remarkably excellent cook&comma; sir&comma;&rsquor; said Jeeves&comma; as though he felt called on to give some explanation&period; &OpenCurlyQuote;What was it you wished to ask me about Mr Little&quest;&rsquor;
+        p.text I sprang the details on him&period;
+        p.text
+          | &OpenCurlyQuote;And that&rsquor;s how the matter stands&comma; Jeeves&comma;&rsquor; I said&period; &OpenCurlyQuote;I thing we ought to rally round a trifle and help poor old Bingo put the thing through&period; Tell me about old Mr Little&period; What sort of a chap is he&quest;&rsquor;
+        p.text
+          | &OpenCurlyQuote;A somewhat curious character sir&period; Since retiring from business he has become a great recluse&comma; and now devotes himself almost entirely to the pleasures of the table&period;&rsquor;
+        p.text &OpenCurlyQuote;Greedy hog&comma; you mean&quest;&rsquor;
+        p.text
+          | &OpenCurlyQuote;I would not&comma; perhaps take the liberty of describing him in precisely those terms&comma; sir&period; He is what is usually called a gourmet&period; Very particular about what he eats&comma; and for that reason sets a high value on Miss Watson&rsquor;s services&period;&rsquor;
+        p.text &OpenCurlyQuote;The cook&quest;&rsquor;
+        p.text &OpenCurlyQuote;Yes&comma; sir&period;&rsquor;
+        p.text
+          | &OpenCurlyQuote;Well&comma; it looks to me as though our best plan would be to shoot young Bingo in on him after dinner one night&period; Melting mood&comma; I mean to say&comma; and all that&period;&rsquor;
+        p.text
+          | &OpenCurlyQuote;The difficulty is&comma; sir&comma; that at the moment Mr Little is on a diet&comma; owing to an attack of gout&period;&rsquor;
+        p.text &OpenCurlyQuote;Things begin to look wobbly&period;&rsquor;
+        p.text
+          | &OpenCurlyQuote;No&comma; sir&comma; I fancy that the elder Mr Little&rsquor;s misfortune may be turned to the younger Mr Little&rsquor;s advantage&period; I was speaking only the other day to Mr Little&rsquor;s valet&comma; and he was telling me that it has become his principal duty to read to Mr Little in the evenings&period; If I were in your place&comma; sir&comma; I should send young Mr Little to read to his uncle&period;&rsquor;
+        p.text &OpenCurlyQuote;Nephew&rsquor;s devotion&comma; you mean&quest; Old man toughed by kindly action&comma; what&quest;&rsquor;
+        p.text
+          | &OpenCurlyQuote;Partly that&comma; sir&period; But I would rely more on young Mr Little&rsquor;s choice of literature&period;&rsquor;
+        p.text
+          | &OpenCurlyQuote;That&rsquor;s no good&period; Jolly old Bongo has a kind face&comma; but when it comes to literature he stops at the
+          em Sporting Times
+          | &period;&rsquor;
+        p.text
+          | &OpenCurlyQuote;That difficulty may be overcome&period; I would be happy to select books for Mr Little for read&period; Perhaps I might explain my idea a little further&period;&rsquor;
+        p.text &OpenCurlyQuote;I can&rsquor;t say I quite grasp it yet&period;&rsquor;
+        p.text
+          | &OpenCurlyQuote;The method which I advocate is what&comma; I believe&comma; the advertisers call Direct Suggestion&comma; sir&comma; consisting as it does of driving and idea home by constant repetition&period; You may have had experience of the system&quest;&rsquor;
+        p.text
+          | &OpenCurlyQuote;You mean they keep on telling you that some soap of the other is the best and after a bit you come under the influence and charge around the corner and buy a cake&quest;&rsquor;
+        p.text
+          | &OpenCurlyQuote;Exactly&comma; sir&period; The same method was the basis of all the most valuable propaganda during the recent war&period; I see no reason why it should not be adopted to bring about the desired result with regard to the subject&rsquor;s views on class distinctions&period; If young Mr Little were to read day after day to his uncle a series of narratives in which marriage with young persons of an inferior social status was held up as both feasible and admirable&comma; I fancy it would prepare the elder Mr Little&rsquor;s mind for the reception of the information that his nephew wishes to marry a waitress in a tea-shop&period;&rsquor;
+        p.text
+          | &OpenCurlyQuote;
+          em Are
+          | there any books of that sort nowadays&quest; The only ones I ever see mentioned in the papers are about married couples who find life grey&comma; and can&rsquor;t stick each other at any price&period;&rsquor;
+        p.text
+          | &OpenCurlyQuote;Yes&comma; sir&comma; there are a great many&comma; neglected by the reviewers but widely read&period; You have never encountered &OpenCurlyDoubleQuote;All for Love&rdquor;&comma; by Rosie M&period; Banks&quest;&rsquor;
+        p.text &OpenCurlyQuote;No&period;&rsquor;
+        p.text &OpenCurlyQuote;Nor &OpenCurlyDoubleQuote;A Red&comma; Red Summer Rose&rdquor;&comma; by the same author&quest;&rsquor;
+        p.text &OpenCurlyQuote;No&period;&rsquor;
+        p.text
+          | &OpenCurlyQuote;I have an aunt&comma; sir&comma; who owns an almost complete set of Rosie M&period; Banks&rsquor;&period; I could easily borrow as many volumes as young Mr Little might require&period; They make very light&comma; attractive reading&period;&rsquor;
+        p.text &OpenCurlyQuote;Well&comma; it&rsquor;s worth trying&period;&rsquor;
+        p.text &OpenCurlyQuote;I should certainly recommend the scheme&comma; sir&period;&rsquor;
+        p.text
+          | &OpenCurlyQuote;All right&comma; then&period; Toddle round to your aunt&rsquor;s tomorrow and grab a couple of the fruitiest&period; We can but have a dash at it&period;&rsquor;
+        p.text &OpenCurlyQuote;Precisely&comma; sir&period;&rsquor;
+        // <div class="bibliography"></div>

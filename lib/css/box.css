@@ -4,8 +4,9 @@
 	font-weight: bold;
 }
 #genome-map {
-	padding-left: 2px;
+	padding-left: 3px;
 	padding-top: 3px;
+	padding-bottom: 70px;
 	width: 120px;
 	
 }
