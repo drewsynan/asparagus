@@ -9,8 +9,6 @@ asparagus requires that you have [Node.js](http://nodejs.org) (>= 0.10.0) and [C
 To get started with a quick example, clone the repo,
 
 ```
-#!bash
-
 $ git clone https://github.com/drewsynan/asparagus
 ```
 
@@ -18,8 +16,6 @@ cd into the asparagus directory
 
 
 ```
-#!bash
-
 $ cd asparagus
 ```
 
@@ -27,8 +23,6 @@ install the dependencies,
 
 
 ```
-#!bash
-
 $ npm install
 ```
 
@@ -36,8 +30,6 @@ and launch the app
 
 
 ```
-#!bash
-
 $ node app.js
 ```
 
