@@ -10,7 +10,7 @@ var params = {
 	mutationRate: 0.05,
 	currentGeneration: 0,
 	fitnessFunction: function(t, s) {
-		fitness = t * Math.exp(parseFloat(s))
+		fitness = t * Math.exp(parseFloat(s));
 		return fitness
 	},
 	resume: false
