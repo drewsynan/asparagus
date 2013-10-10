@@ -10,6 +10,10 @@ function setViews(myExpressApp, myExpress) {
 		res.sendfile(__dirname + '/views/example.html');
 	});
 
+	app.get('/average', function(req, res) {
+		res.sendfile(__dirname + '/views/average.html');
+	});
+
 };
 
 module.exports = setViews;

@@ -6,7 +6,7 @@
     "socket.io": ">=0.9.x",
     "nano": ">=4.1.x",
     "underscore": ">=1.5.x",
-    "bigint-node": ">=1.0.1",
+    "bignum": ">=0.6.2",
     "http-proxy": ">=0.10.x"
   },
   "description": "content management and generative typography framework",

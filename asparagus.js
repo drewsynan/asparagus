@@ -5,7 +5,7 @@ function asparagus() {
 	, server = require('http').createServer(app)
 	, io = require('socket.io').listen(server)
 	, crypto = require('crypto')
-	, BigInt = require('bigint-node')
+	, bignum = require('bignum')
 	, _ = require('underscore')
 	, events = require('events');
 
@@ -15,6 +15,8 @@ function asparagus() {
 
 	var mainAppMessenger = new events.EventEmitter();
 	this.listener = mainAppMessenger;
+
+	averager = new chromosomeAverager();
 
 	/* params = {
 			appPort: 8080,
@@ -110,7 +112,7 @@ function asparagus() {
 
 			///////// Web Sockets
 
-			io.sockets.on('connection', function(socket) {
+			/* io.sockets.on('connection', function(socket) {
 
 				//push initial choromosome once it's ready
 				herder.on("hereYouGo",function(individual){
@@ -122,12 +124,41 @@ function asparagus() {
 
 				socket.on('death', function(data) {
 					storeIndividual(data);
+					averager.processIndividual(data);
 				});
 
-				/*socket.on('test', function(){
-					console.log("TEST");
-				});*/
-			});
+				//socket.on('test', function(){
+				//	console.log("TEST");
+				//});
+
+			}); */
+
+			var averagesSocket = io
+				.of('/avg')
+				.on('connection', function (socket) {
+					averager.getAverage();
+					herder.on('avgChrom', function(chromosome){
+						socket.emit('avgChrom',chromosome);
+					});
+				});
+
+			var mainSocket = io
+				.of('/chromosomes')
+				.on('connection', function (socket) {
+
+					//push initial choromosome once it's ready
+					herder.on("hereYouGo",function(individual){
+						socket.emit('initialChromosome',individual);
+					});
+
+					//queue up next individual
+					getNextIndividual();
+
+					socket.on('death', function(data) {
+						storeIndividual(data);
+						averager.processIndividual(data);
+					});
+				});
 
 		} else if (status.appBooted) {
 			//if booted, start listener again
@@ -168,11 +199,69 @@ function asparagus() {
 
 		/*Weighted Average
 			x_bar = Sum(fitness_i * chromosome_i) / Sum(fitness_i)
+
+			x_bar = Sum(product)
 		*/
 
 		//big int for pieces
+		sum_product = bignum(0);
+		sum_fitness = bignum(0);
+		counter = 0;
 
-		this.pushIndividual = function(individual){};
+		var binding = this;
+
+		this.processIndividual = function(individual){
+			counter = counter + 1;
+			var chrom = individual.chromosome;
+			var fitness = individual.fitness;
+
+			var bigChrom = bignum(chrom, base=16);
+			var bigFitness = bignum(Math.round(fitness), base=10);
+
+			var product = bigChrom.mul(bigFitness);
+
+			sum_product = sum_fitness.add(product);
+			sum_fitness = sum_fitness.add(bigFitness);
+
+			binding.getAverage();
+		};
+
+		this.getAverageJson = function(){
+
+			if(! sum_fitness.eq(0)) {
+				var avgChrom = sum_product.div(sum_fitness);
+				var avgChromString = avgChrom.toString(base=16);
+
+				var avgFitnessBig = sum_fitness.div(counter);
+				var avgFitness = avgFitnessBig.toNumber();
+
+				returnJSON = {chromosome: avgChromString,
+						md5: "",
+						generation: params.currentGeneration,
+						individual: "average",
+						parent1: "none",
+						parent1: "none",
+						time: "none",
+						scroll: 0,
+						fitness: avgFitness};
+			} else {
+				returnJSON = {
+					chromosome: "not ready",
+					individual: "average",
+					parent1: "none",
+					parent2: "none",
+					scroll: 0,
+					fitness: "none"
+				};
+			};
+
+			return returnJSON
+		};
+
+		this.getAverage = function() {
+
+			herder.emit("avgChrom",binding.getAverageJson());
+		};
 
 	};
 
@@ -228,6 +317,10 @@ function asparagus() {
 	function createGenerationZero() {
 
 		params.currentGeneration = 0;
+
+		nano.db.destroy(params.dbName + "_averages", function () {
+			nano.db.create(params.dbName + "_averages", function (){});
+		});
 		
 		nano.db.destroy(params.dbName, function() {
 			nano.db.create(params.dbName, function() {
@@ -480,8 +573,15 @@ function asparagus() {
 						});
 						//console.log(sendStack);
 					}
-					params.currentGeneration = nextGenVal;
-					checkSendStack();
+
+					var avgDb = nano.use(params.dbName + "_averages"); //write current average to couch
+					avgDb.insert(averager.getAverageJson(),{},function(){
+						
+						averager = new chromosomeAverager(); //reset averager to the next generation
+
+						params.currentGeneration = nextGenVal;
+						checkSendStack();
+					});
 				});
 			});
 		});
