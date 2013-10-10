@@ -18,6 +18,8 @@ function asparagus() {
 
 	averager = new chromosomeAverager();
 
+	connectedUsers = 0;
+
 	/* params = {
 			appPort: 8080,
 			appHostName: 'localhost',
@@ -136,10 +138,16 @@ function asparagus() {
 			var averagesSocket = io
 				.of('/avg')
 				.on('connection', function (socket) {
-					averager.getAverage();
 					herder.on('avgChrom', function(chromosome){
+						function filterNullValues (i) {
+  							return (i!=null);
+						}
+						online = io.sockets.clients().filter(filterNullValues).length;
+
+						chromosome['connectedUsers'] = online;
 						socket.emit('avgChrom',chromosome);
 					});
+					averager.getAverage();
 				});
 
 			var mainSocket = io
