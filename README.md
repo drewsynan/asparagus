@@ -12,18 +12,11 @@ To get started with a quick example, clone the repo,
 $ git clone https://github.com/drewsynan/asparagus
 ```
 
-cd into the asparagus directory
+cd into the asparagus directory and install the dependencies
 
 
 ```
-$ cd asparagus
-```
-
-install the dependencies,
-
-
-```
-$ npm install
+$ cd asparagus && npm install
 ```
 
 and launch the app
@@ -35,12 +28,24 @@ $ node app.js
 
 Point your browser to ```localhost:8080``` to view the results
 
+## What is generative typography? ##
+Generative typography is the use of computers, and/or algorithms to create letterforms and visual compositions of letter
+forms. Conceptually, asparagus was influenced by the work of swiss typographer Karl Gerstner, who began experimenting with
+[using computers](http://www.lars-mueller-publishers.com/en/programme-entwerfen) to design grid systems and compositions (typographic and [otherwise](http://www.amazon.com/Karl-Gerstner-Chapters-Constructive-Pictures/dp/3775791515)) in the 1950s and 1960s.
+
+While Gerstner used what could be thought of as a deterministic approach to generative design (meaning he used equations and programs that would reliably produce the same results each time they were computed), asparagus takes a non-deterministic and probabilistic approach.
+
+Asparagus's equations are not determined beforehand. They are randomly generated, and then selected and refined by user
+interaction. This means each time the program is run, the "solution" found is unique. Moreover, there is no "correct"
+solution, or end result. Much as organisms react to the environment and events around them asparagus takes the chaos
+in its web-environment and reacts and adapts.
+
 ## How does asparagus work? ##
-Asparagus uses [genetic algorithms](http://en.wikipedia.org/wiki/Genetic_algorithm) to determine page layout. Each design parameter (font, color, paragraph margin) is encoded into a single long string of ones and zeros (called the genome).
+Asparagus uses [genetic algorithms](http://en.wikipedia.org/wiki/Genetic_algorithm) to determine page layout. Each design parameter (font, color, paragraph margin) is encoded into a single long string of ones and zeros (called the chromosome). Chromosomes are initially filled with completely random junk (this random group is known as generation 0), but slowly develop and stabalize into specific (if non-deterministic) design solutions.
 
-Initially, a bunch of chromosomes are created completely filled with random junk. This collection of random chromosomes is known as generation 0. As people interact with the pages created from this random junk, the pages are given a score by a [fitness function](http://en.wikipedia.org/wiki/Fitness_function). Pages that they seem to like and interact with better have a higher score. Once all of the "individuals" (all of the chromosomes) in generation 0 have been scored, probabilities based on the fitness (as a proportion of the total fitness of the generation) are assigned to each individual, and based on these probabilities pairs of individuals are selected to reproduce.
+As people interact with the pages created from the chromosomes, each chromosome is given a score by a [fitness function](http://en.wikipedia.org/wiki/Fitness_function). Pages that they seem to like and interact with better have a higher score. Once all of the "individuals" (all of the chromosomes) in generation 0 have been scored, probabilities based on the fitness (as a proportion of the total fitness of the generation) are assigned to each individual, and based on these probabilities pairs of individuals are selected to reproduce.
 
-As in nature, the individuals reproducing divide and swap their genetic information (portions of the ones and zeros making up the design code) to create a new child individual. When enough children have been made a new generation is sent out into the big world wide web, and the process repeats.
+As in nature, the individuals reproducing divide and swap their genetic information (portions of the ones and zeros making up the design code) to create a new child individual. (As an example, a new page may inherit type size and margin settings from one parent and type color and leading information from the other.) When enough children have been made, a new generation is sent out into the big world wide web, and the selection and reproduction process repeats.
 
 When a user loads a page, a chromosome is sent from the server. The client then transcribes the genome into [CSS](http://en.wikipedia.org/wiki/Cascading_Style_Sheets) rules that are applied to the page. The user sends back information about their interactions with the page, and the chromosome is scored accordingly.
 
