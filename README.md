@@ -30,7 +30,7 @@ Point your browser to ```localhost:8080``` to view the results
 
 ## What is generative typography? ##
 Generative typography is the use of computers, and/or algorithms to create letterforms and visual compositions of letter
-forms. Conceptually, asparagus was influenced by the work of swiss typographer Karl Gerstner, who began experimenting with
+forms. Conceptually, asparagus was influenced by the work of Swiss typographer Karl Gerstner, who began experimenting with
 [using computers](http://www.lars-mueller-publishers.com/en/programme-entwerfen) to design grid systems and compositions (typographic and [otherwise](http://www.amazon.com/Karl-Gerstner-Chapters-Constructive-Pictures/dp/3775791515)) in the 1950s and 1960s.
 
 While Gerstner used what could be thought of as a deterministic approach to generative design (meaning he used equations and programs with pre-defined parameters that would reliably produce the same results each time they were computed), asparagus takes a non-deterministic and probabilistic approach.
