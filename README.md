@@ -63,6 +63,7 @@ Additionally, asparagus addresses questions of generative document design in add
 of the generative typographic projects and toolkits on and for the web today focus on display text rather than on document and text design as a whole; asparagus focuses on these aspects of generative design.
 
 Asparagus also allows for a social dimension to the generative process. With the "average chromosome" page, readers can observe the way other users are affecting the chromosomes for the next generation in real time. As each user interaction is
-logged into the server, an "average" chromosome is computed and pushed out to any who wish to view it.
+logged into the server, an "average" chromosome is computed based on the fitness of the individuals that have been scored 
+and this is pushed out to any who wish to view it.
 
 Ultimately, asparagus is about a providing people with a generative design experience, as opposed to a generatively designed object.
