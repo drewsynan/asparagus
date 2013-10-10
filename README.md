@@ -33,9 +33,9 @@ Generative typography is the use of computers, and/or algorithms to create lette
 forms. Conceptually, asparagus was influenced by the work of swiss typographer Karl Gerstner, who began experimenting with
 [using computers](http://www.lars-mueller-publishers.com/en/programme-entwerfen) to design grid systems and compositions (typographic and [otherwise](http://www.amazon.com/Karl-Gerstner-Chapters-Constructive-Pictures/dp/3775791515)) in the 1950s and 1960s.
 
-While Gerstner used what could be thought of as a deterministic approach to generative design (meaning he used equations and programs that would reliably produce the same results each time they were computed), asparagus takes a non-deterministic and probabilistic approach.
+While Gerstner used what could be thought of as a deterministic approach to generative design (meaning he used equations and programs with pre-defined parameters that would reliably produce the same results each time they were computed), asparagus takes a non-deterministic and probabilistic approach.
 
-Asparagus's equations are not determined beforehand. They are randomly generated, and then selected and refined by user
+Asparagus's parameters are not determined beforehand. They are randomly generated, and then selected and refined by user
 interaction. This means each time the program is run, the "solution" found is unique. Moreover, there is no "correct"
 solution, or end result. Much as organisms react to the environment and events around them asparagus takes the chaos
 in its web-environment and reacts and adapts.
@@ -56,3 +56,13 @@ When a user loads a page, a chromosome is sent from the server. The client then 
 ```
 
 (lol what did u expect)
+
+## why? ##
+Asparagus was created in part to make it easier for designers and artists to create generative typographic works on the web.
+Additionally, asparagus addresses questions of generative document design in addition to generative typography. A great many
+of the generative typographic projects and toolkits on and for the web today focus on display text rather than on document and text design as a whole; asparagus focuses on these aspects of generative design.
+
+Asparagus also allows for a social dimension to the generative process. With the "average chromosome" page, readers can observe the way other users are affecting the chromosomes for the next generation in real time. As each user interaction is
+logged into the server, an "average" chromosome is computed and pushed out to any who wish to view it.
+
+Ultimately, asparagus is about a generative design experience, as opposed to a generatively designed object.
