@@ -55,11 +55,11 @@
 
 		#links li {
 			float: left;
-			padding-right: 30pt;
+			padding-right: 15pt;
 			list-style: none;
 			font-family: "Gill Sans", sans-serif;
 			text-transform: uppercase;
-			font-size: 9pt;
+			font-size: 8pt;
 			letter-spacing: 2pt;
 		}
 		#links li a:link, a:visited {
@@ -79,7 +79,7 @@
 			z-index: 100;
 			font-family: "Gill Sans", sans-serif;
 			text-transform: lowercase;
-			font-size: 9pt;
+			font-size: 8pt;
 			letter-spacing: 2pt;
 			color: #c00;
 			padding-right: 10px;
@@ -94,7 +94,7 @@
 
 <div id="mainNav" class="nav">
 <ul id="links">
-	<li><a href="..">Home</a></li>
+	<li><a href="./">Home</a></li>
 </ul>
 </div>
 
@@ -125,7 +125,7 @@
 </div>
 
 <script>
-	$.getJSON("/lib/js/averageNav.json",function(response) {
+	$.getJSON("/lib/js/averageNav.json",function(response, status, err) {
 		for (key in response) {
 			$("#links").append('<li><a href="javascript:loadPhenotype(\'' + response[key] + '\')">' + key + '</a></li>');
 		};
@@ -133,7 +133,11 @@
 	$("#articlebodyID").hide();
 	//$("#articlebodyID").load("/example #articlebodyID");
 	function loadPhenotype(url) {
-		$("#articlebodyID").load(url + " #articlebodyID");
+		$("#articlebodyID").load(url + " #articlebodyID > *",function(response,status,err) {
+			console.log(status);
+			console.log(err);
+
+		});
 	};
 </script>
 </html>
