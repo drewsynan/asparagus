@@ -341,17 +341,17 @@ function asparagus() {
 					"views":
 					{
 						"no_timing_info": {
-							"map" : function(doc) { if(doc.time == "none") {emit(doc.generation,doc);} }
+							"map" : function(doc) { if(doc.time > 0) {emit(doc.generation,doc);} }
 						},
 						"with_timing_info": {
-							"map" : function(doc) { if(doc.time != "none") emit(doc.generation,doc); }
+							"map" : function(doc) { if(! (doc.time > 0)) emit(doc.generation,doc); }
 						},
 						"total_fitness_0": {
-							"map" : function(doc) { if(doc.generation == 0 && doc.time != "none") { emit(doc.generation, doc.fitness)} },
+							"map" : function(doc) { if(doc.generation == 0 && (doc.time > 0)) { emit(doc.generation, doc.fitness)} },
 							"reduce": "_sum"
 						},
 						"total_fitness": {
-							"map" : function(doc) { if(doc.time != "none") { emit(doc.generation, doc.fitness)} },
+							"map" : function(doc) { if(!(doc.time > 0)) { emit(doc.generation, doc.fitness)} },
 							"reduce": "_sum"
 						},
 						"generation_stats": {
