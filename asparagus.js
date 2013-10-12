@@ -11,6 +11,10 @@ function asparagus() {
 
 	params = require('./params.js');
 
+	//Remove limit on listeners
+	app.setMaxListeners(0);
+	io.setMaxListeners(0);
+
 	var mainAppScope = this;
 
 	var mainAppMessenger = new events.EventEmitter();
