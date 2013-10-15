@@ -64,6 +64,9 @@
 #gotItButton:hover{
 	border: 1px solid #c00;
 }
+#moreInfoLink {
+	color: #fff;
+}
 
 .annotation {
 	color: #fff;
