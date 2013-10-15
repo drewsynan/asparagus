@@ -5,10 +5,13 @@
 	<title>The Inimitible Jeeves</title>
 	<meta charset="UTF-8">
 
+	<link rel="stylesheet" href="/lib/css/splash.css">
 	<link rel="stylesheet" href="/lib/css/box.css">
 
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<!-- <script src="/lib/offline/jquery-1.9.1.js"></script> -->
+
+	<script src="/lib/js/jquery.cookie.js"></script>
 
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="/lib/js/idle-timer.min.js"></script>
@@ -23,6 +26,27 @@
 </head>
 <body style="display: none">
 <script src="/lib/js/frontend-doc-ready.js"></script>
+
+<!-- SPLASH SCREEN -->
+<div id="splash">
+	<div class="message">
+		<h1>A word on generative typography</h1>
+		<p><em>American Asparagus 1</em> uses <em>generative typography</em>. This means that every time
+			you load an article, what you see is completely unique.<p>
+			<p>You also might see articles that don't seem to conform to the traditional conceptions of document design and typography. This is in part, because each page takes your feeback, and &ldquo;improves&rdquo; it. We started the design rules from a completely random assortment of spacing, fonts, and colors. As you interact with each unique realization a page (an &ldquo;individual&rdquo; in the genetic algorithm), you influence future generations. If you like something, stick around and explore, pass on the page's design &ldquo;genes&rdquo; to the next generation. If you <em>don't</em> like something, refresh the page, or click the <b>kill</b> button in the control box on the left. 
+			<a href="/1/faq">More information&hellip;</a></p>
+			<p align="right"><span id="gotItButton">Continue</span></p>
+
+	</div>
+	<div class="annotation" id="home-anno"><span class="rubrication arrow">&#8592;</span> click to return to the table of contents</div>
+	<div class="annotation" id="info-anno"><span class="rubrication arrow">&#8592;</span> information about the current chromosome (click to collapse)</div>
+	<div class="annotation" id="map-anno"><span class="rubrication arrow">&#8592;</span> a visual representation of the current chromosome</div>
+	<div class="annotation" id="indiv-anno"><span class="rubrication arrow">&#8592;</span> the current version (&ldquo;individual&rdquo;) of the page</div>
+	<div class="annotation" id="gen-anno"><span class="rubrication arrow">&#8592;</span> this individual's generation (approx. 150 individuals per generation)</div>
+	<div class="annotation" id="kill-anno"><span class="rubrication arrow">&#8592;</span> click to kill this page and load a new version</div> 
+	<div class="annotation" id="box-anno"><span class="rubrication arrow">&#8593;</span> the control box</div>
+</div>
+<!-- END SPLASH SCREEN -->
 
 <!-- FLOATING BOX -->
 <div class="floating-box">
